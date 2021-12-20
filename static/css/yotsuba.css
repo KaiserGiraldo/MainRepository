@@ -1,0 +1,131 @@
+body {
+    background: #FFFFEE url(' data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAADICAIAAACmkByiAAAAWElEQVR4AaWSwQ3AIAwDbfbfpdt0nKrPUp3QCfHgkfjsCMh47mskmU5HGvbmuuh9dVce8M4it/SfMZglGeZx/ccyu/Vsv4/N29f331AY5Bi3+hdo4A92+wXvCwR9mXztrAAAAABJRU5ErkJggg==') repeat-x 50% 0%;
+    color: #800000;
+    font-family: arial, helvetica, sans-serif;
+}
+a {
+    color: #00E;
+}
+
+.innerPost {
+    background-color: #f0e0d6;
+    border: 1px solid #D9BFB7;
+    border-left: none;
+    border-top: none;
+}
+.markedPost {
+    background-color: #F0C0B0;
+    border: 1px solid #800000;
+}
+.divMessage {
+    color: #800000;
+}
+.labelCreated, 
+.linkQuote, 
+.linkSelf {
+    color: #800000;
+}
+.labelSubject {
+    color: #cc1105;
+}
+.labelOmission{
+    color: #707070;
+}
+#watchedMenu {
+    background: #F0C0B0;
+}
+nav {
+    background-color: #FEDBB6;
+    border-bottom: none;
+}
+#postingForm th {
+    background-color: #EEAA88;
+    color: #800000;
+    border: 1px solid #800;
+}
+#postingForm td {
+    background-color: transparent;
+}
+#quick-reply table {
+    background-color: #FFFFEE;
+    border: 1px solid #800000;
+}
+#quick-reply table {
+    padding: 0em;
+}
+#quick-reply th {
+    background-color: #fca;
+}
+#divLatestPosts .latestPostCell {
+    background: #F0E0D6;
+}
+.floatingMenu {
+    background-color: #F0C0B0;
+    border: 1px solid #D99F91;
+}
+
+.coloredIcon {
+   color: #800000;
+}
+
+.linkName.noEmailName {
+  color: #117743;
+}
+
+.table_h2 {
+  background: #fca;
+}
+
+.linkBoxes li, .tableOutside {
+  border: 1px solid #800000;
+}
+
+.linkBoxes li {
+  background: #fed;
+  border-left: none;
+}
+
+.linkBoxes li.first {
+  border-left: 1px solid #800000;
+}
+
+.boardBox a, .linkBoxes a, .span {
+  color: #800;
+}
+
+.tableOutside {
+  background: #fff;
+}
+
+.modalDecorationPanel {
+  background: #f0e0d6;
+}
+
+#labelName, #labelDescription {
+  color: #800000;
+} 
+
+hr {
+  border-color: #D9BFB7;
+}
+
+.reportFieldset {
+  border: 1px solid #D9BFB7;
+}
+
+span.spoiler:hover {
+  color: #800;
+}
+
+#settingsFieldset {
+  border: 1px solid #800000;
+}
+
+a:hover, #watcherButton:hover {
+    color:#FF3300!important;
+  text-decoration: underline;
+}
+
+code .redText, code span.spoiler .redText {
+  color: #800000;
+}

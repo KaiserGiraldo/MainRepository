@@ -1,11 +1,51 @@
-var themes = {};
+var themes = [ {
+  file : 'yotsuba.css',
+  label : 'Yotsuba',
+  id : 'yotsuba'
+}, {
+  file : 'yotsuba_b.css',
+  label : 'Yotsuba B',
+  id : 'yotsuba b'
+}, {
+  file : 'proton.css',
+  label : 'Proton',
+  id : 'proton'
+}, {
+  file : 'happyday.css',
+  label : 'Happy Day',
+  id : 'happyday'
+} ];
 
-themes.init = function() {
+var addedTheme;
 
-  themes.themes = [ {
-    label : 'Clear',
-    id : 'clear'
-  } ];
+function updateCss() {
+
+  if (addedTheme) {
+    addedTheme.parentNode.removeChild(addedTheme);
+    addedTheme = null;
+  }
+
+  for (var i = 0; i < themes.length; i++) {
+    var theme = themes[i];
+
+    if (theme.id === localStorage.selectedTheme) {
+      addedTheme = theme.element;
+      document.head.appendChild(theme.element);
+    }
+  }
+
+}
+
+if (!DISABLE_JS) {
+
+  for (var i = 0; i < themes.length; i++) {
+    themes[i].element = document.createElement('link');
+    themes[i].element.type = 'text/css';
+    themes[i].element.rel = 'stylesheet';
+    themes[i].element.href = '/.static/css/' + themes[i].file;
+  }
+
+  updateCss();
 
   var postingLink = document.getElementById('navPosting');
 
@@ -13,26 +53,26 @@ themes.init = function() {
 
     var referenceNode = postingLink.nextSibling;
 
-    postingLink.parentNode.insertBefore(document.createTextNode(' '),
+    postingLink.parentNode.insertBefore(document.createTextNode(''),
         referenceNode);
 
     var divider = document.createElement('span');
-    divider.innerHTML = '/';
+    divider.innerHTML = '/&nbsp;';
     postingLink.parentNode.insertBefore(divider, referenceNode);
 
-    postingLink.parentNode.insertBefore(document.createTextNode(' '),
+    postingLink.parentNode.insertBefore(document.createTextNode(''),
         referenceNode);
 
     var themeSelector = document.createElement('select');
     themeSelector.id = 'themeSelector';
 
     var vanillaOption = document.createElement('option');
-    vanillaOption.innerHTML = 'Default';
+    vanillaOption.innerHTML = 'Tomorrow';
     themeSelector.appendChild(vanillaOption);
 
-    for (var i = 0; i < themes.themes.length; i++) {
+    for (i = 0; i < themes.length; i++) {
 
-      var theme = themes.themes[i];
+      var theme = themes[i];
 
       var themeOption = document.createElement('option');
       themeOption.innerHTML = theme.label;
@@ -50,14 +90,16 @@ themes.init = function() {
       if (!themeSelector.selectedIndex) {
 
         if (localStorage.selectedTheme) {
+
           delete localStorage.selectedTheme;
-          themeLoader.load();
+
+          updateCss();
         }
 
         return;
       }
 
-      var selectedTheme = themes.themes[themeSelector.selectedIndex - 1];
+      var selectedTheme = themes[themeSelector.selectedIndex - 1];
 
       if (selectedTheme.id === localStorage.selectedTheme) {
         return;
@@ -65,7 +107,7 @@ themes.init = function() {
 
       localStorage.selectedTheme = selectedTheme.id;
 
-      themeLoader.load();
+      updateCss();
 
     };
 
@@ -73,6 +115,4 @@ themes.init = function() {
 
   }
 
-};
-
-themes.init();
+}
