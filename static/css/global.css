@@ -5,11 +5,11 @@
   border-radius: 5px;
 }
 
-.theme_clear .topBoards a, .theme_clear #divLatestImages img,
-  .theme_clear #divLatestPosts .latestPostCell, .theme_clear .innerPost,
-  .theme_clear .sideCatalogCell, .theme_clear .markedPost, .theme_clear .sideCatalogMarkedCell,
-  .theme_clear .catalogCell {
-  background-color: #dddddd;
+.theme_dark .topBoards a, .theme_dark #divLatestImages img,
+  .theme_dark #divLatestPosts .latestPostCell, .theme_dark .innerPost,
+  .theme_dark .sideCatalogCell, .theme_dark .markedPost, .theme_dark .sideCatalogMarkedCell,
+  .theme_dark .catalogCell {
+  background-color: #282A2E;
 }
 
 .validationHashDiv {
@@ -25,16 +25,16 @@
   background: #cccccc;
 }
 
-.theme_clear .floatingMenu, .theme_clear #quick-reply table {
-  background: #cccccc;
+.theme_dark .floatingMenu, .theme_dark #quick-reply table {
+  background: #1d1f21;
 }
 
 .markedPost, .sideCatalogMarkedCell {
   background: #868686;
 }
 
-.theme_clear .markedPost, .theme_clear .sideCatalogMarkedCell {
-  background: #868686;
+.theme_dark .markedPost, .theme_dark .sideCatalogMarkedCell {
+  background: rgba(59, 22, 43, 0.4);
 }
 
 #divLatestPosts .latestPostCell, .innerPost, .sideCatalogCell,
@@ -100,14 +100,14 @@ hr {
 
 a, .coloredIcon, .unhideButton, .embedButton, .checkedFavouriteButton:before,
   #selectedTab, #showFormsButton {
-  color: #FFB300;
+  color: #000;
   cursor: pointer
 }
 
-.theme_clear a, .theme_clear .coloredIcon, .theme_clear .unhideButton,
-  .theme_clear .embedButton, .theme_clear .checkedFavouriteButton:before,
-  .theme_clear #selectedTab, .theme_clear #showFormsButton {
-  color: #000;
+.theme_dark a, .theme_dark .coloredIcon, .theme_dark .unhideButton,
+  .theme_dark .embedButton, .theme_dark .checkedFavouriteButton:before,
+  .theme_dark #selectedTab, .theme_dark #showFormsButton {
+  color: #FFB300;
 }
 
 .coloredIcon::before {
@@ -128,7 +128,7 @@ a:hover, .glowOnHover:hover {
 }
 
 u {
-  text-decoration: 下線テキスト;
+  text-decoration: underline;
 }
 
 s {
@@ -136,7 +136,7 @@ s {
 }
 
 strong {
-  font-weight: 太字;
+  font-weight: bold;
 }
 
 em {
@@ -146,41 +146,41 @@ em {
 input, select, textarea {
   border: 1px double #07371F;
   border-radius: 5px;
-  background: #dddddd;
-  color: #000;
+  background: #dddddd;  
+  color: #000; 
   font-family: 'Hack', monospace, sans-serif;
   font-size: 80%;
 }
 
-.theme_clear input, .theme_clear select, .theme_clear textarea {
-  background: #dddddd;
-  color: #000;
+.theme_dark input, .theme_dark select, .theme_dark textarea {
+  background: #282A2E;
+  color: #ACACAC;
 }
 
 input[type=button], input[type=submit], button, .dropzone, .selectedCell
   {
   border: 3px double #07371F;
   border-radius: 5px;
-  background: #a7a7a7;
-  color: #000;
+  background: #a7a7a7;  
+  color: #000; 
   padding-left: 0.25em;
   font-family: 'Hack', monospace, sans-serif;
   font-size: 80%;
-  font-weight: 太字;
+  font-weight: bold;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
   cursor: pointer;
 }
 
-.theme_clear input[type=button], .theme_clear input[type=submit],
-  .theme_clear button, .theme_clear .dropzone, .theme_clear .selectedCell
+.theme_dark input[type=button], .theme_dark input[type=submit],
+  .theme_dark button, .theme_dark .dropzone, .theme_dark .selectedCell
   {
-  background: #a7a7a7;
-  color: #000;
+  background: #16171A;
+  color: #ACACAC;
 }
 
 .title, .unhideButton {
-  font-weight: 太字;
+  font-weight: bold;
 }
 
 .fileBrowser {
@@ -214,16 +214,16 @@ input[type=button], input[type=submit], button, .dropzone, .selectedCell
 
 /* body styles, inherited by whole page */
 body {
-  color: #000;
-  background: #cccccc;
+  color: #000; 
+  background: #cccccc; 
   font-family: 'Hack', monospace, sans-serif;
   font-size: 100%;
   margin: 0px;
 }
 
-body.theme_clear {
+body.theme_dark {
   background-color: #cccccc;
-  color: #000;
+  color: #ACACAC; ; 
 }
 
 /* header and nav / top of page styles */
@@ -245,8 +245,8 @@ nav {
   z-index: 1;
 }
 
-.theme_clear nav {
-  background-color: #acacac;
+.theme_dark nav {
+  background-color: #151515; 
 }
 
 nav span, nav a {
@@ -332,7 +332,7 @@ a.rules:after {
 
 .redText {
   color: #AF0A0F;
-  font-weight: 太字;
+  font-weight: bold;
   font-size: 125%;
 }
 

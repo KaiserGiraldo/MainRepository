@@ -60,12 +60,12 @@ video {
   font-weight: normal;
   white-space: nowrap;
   cursor: default;
-  color: #ACACAC;
+  color: #000;
   text-shadow: none;
 }
 
-.theme_clear .extraMenu, .theme_clear .hideMenu {
-  color: #000;
+.theme_dark .extraMenu, .theme_dark .hideMenu {
+  color: #ACACAC; 
 }
 
 .hideMenu div, .extraMenu div {
@@ -95,7 +95,7 @@ video {
 }
 
 .linkName {
-  font-weight: 太字;
+  font-weight: bold;
   color: #34ED97;
 }
 
@@ -133,13 +133,13 @@ video {
 
 .labelSubject {
   color: #34ED3A;
-  font-weight: 太字;
+  font-weight: bold;
   word-wrap: break-word;
 }
 
 .labelRole {
   color: #ff0000;
-  font-weight: 太字;
+  font-weight: bold;
 }
 
 .labelRole:before {
@@ -156,7 +156,7 @@ video {
 
 .divBanMessage {
   color: #ff0000;
-  font-weight: 太字;
+  font-weight: bold;
   margin: 1em;
   font-size: 100%;
 }
@@ -337,14 +337,14 @@ video {
 }
 
 .modalDecorationPanel {
-  background: #1D1F21;
+  background: #cccccc;
   padding: 10px;
   display: inline-block;
   max-width: 90%;
 }
 
-.theme_clear .modalDecorationPanel {
-  background: #cccccc;
+.theme_dark .modalDecorationPanel {
+  background: #1D1F21; 
 }
 
 .modalHeader {
@@ -362,7 +362,7 @@ video {
 }
 
 #postingForm th, .modalTableBody th {
-  font-weight: 太字;
+  font-weight: bold;
   text-align: left;
   width: 100px;
   font-size: 80%;
@@ -370,7 +370,7 @@ video {
   cursor: default;
   border: 1px solid #117743;
   border-radius: 5px;
-  background: #282A2E;
+  background: #dddddd; 
 }
 
 #postingForm td, .modalTableBody td {
@@ -383,8 +383,8 @@ video {
   box-shadow: 0px 0px 5px 2px #117743;
 }
 
-.theme_clear #postingForm th, .theme_clear .modalTableBody th {
-  background: #dddddd;
+.theme_dark #postingForm th, .theme_dark .modalTableBody th {
+  background: #282A2E;
 }
 
 @media only screen and (max-width: 812px) {

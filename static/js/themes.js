@@ -3,8 +3,8 @@ var themes = {};
 themes.init = function() {
 
   themes.themes = [ {
-    label : 'Clear',
-    id : 'clear'
+    label : 'ダークモード',
+    id : 'dark'
   } ];
 
   var postingLink = document.getElementById('navPosting');
@@ -27,7 +27,7 @@ themes.init = function() {
     themeSelector.id = 'themeSelector';
 
     var vanillaOption = document.createElement('option');
-    vanillaOption.innerHTML = 'Default';
+    vanillaOption.innerHTML = 'デフォルト';
     themeSelector.appendChild(vanillaOption);
 
     for (var i = 0; i < themes.themes.length; i++) {
