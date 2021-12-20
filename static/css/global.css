@@ -1,7 +1,7 @@
 .topBoards a, #divLatestImages img, #divLatestPosts .latestPostCell,
   .innerPost, .sideCatalogCell, .markedPost, .sideCatalogMarkedCell,
   .catalogCell {
-  background: #282A2E;
+  background: #dddddd;
   border-radius: 5px;
 }
 
@@ -22,7 +22,7 @@
 }
 
 .floatingMenu, #quick-reply table {
-  background: #1d1f21;
+  background: #cccccc;
 }
 
 .theme_clear .floatingMenu, .theme_clear #quick-reply table {
@@ -30,7 +30,7 @@
 }
 
 .markedPost, .sideCatalogMarkedCell {
-  background: rgba(59, 22, 43, 0.4);
+  background: #868686;
 }
 
 .theme_clear .markedPost, .theme_clear .sideCatalogMarkedCell {
@@ -146,8 +146,8 @@ em {
 input, select, textarea {
   border: 1px double #07371F;
   border-radius: 5px;
-  background: #282A2E;
-  color: #ACACAC;
+  background: #dddddd;
+  color: #000;
   font-family: 'Hack', monospace, sans-serif;
   font-size: 80%;
 }
@@ -161,8 +161,8 @@ input[type=button], input[type=submit], button, .dropzone, .selectedCell
   {
   border: 3px double #07371F;
   border-radius: 5px;
-  background: #16171A;
-  color: #ACACAC;
+  background: #a7a7a7;
+  color: #000;
   padding-left: 0.25em;
   font-family: 'Hack', monospace, sans-serif;
   font-size: 80%;
@@ -214,8 +214,8 @@ input[type=button], input[type=submit], button, .dropzone, .selectedCell
 
 /* body styles, inherited by whole page */
 body {
-  color: #ACACAC;
-  background: #1D1F21;
+  color: #000;
+  background: #cccccc;
   font-family: 'Hack', monospace, sans-serif;
   font-size: 100%;
   margin: 0px;
@@ -237,7 +237,7 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #151515;
+  background-color: #acacac;
   border-bottom: 1px solid #B0790A;
   padding-bottom: 3px;
   font-size: 70%;
