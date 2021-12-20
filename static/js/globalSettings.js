@@ -19,7 +19,7 @@ globalSettings.init = function() {
       type : 'boolean',
       setting : 'useSendmail',
     },
-    fieldごみ箱LimitDays : {
+    fieldTrashLimitDays : {
       type : 'string',
       setting : 'trashLimitDays',
     },
