@@ -9,7 +9,7 @@
   href="/.static/css/global.css"
   type="text/css"
   rel="stylesheet" />
-<title>Moderation</title>
+<title>モデレート</title>
 </head>
 <body>
 
@@ -24,235 +24,208 @@
       alt="logo" />
   </header>
 
-  <div id="settingsWrapper">
-    <fieldset id="settingsFieldset">
-      <legend>Usage</legend>
+<div id="toc_container">
+<ul class="toc_list">
+  <li><a href="#Board_Creation">1. 掲示板の作成</a>
+  <ul>
+    <li><a href="#BC_Requirements">1.1. 要件</a></li>
+    <li><a href="#BC_Claims">1.2. 請求</a></li>
+    <li><a href="#User">1.3. ユーザーアカウント</a></li>
+  </ul>
+</li>
+<li><a href="#Board_Settings">2. 掲示板設定</a></li>
+<li><a href="#Board_Moderation">3. 掲示板モデレーション</a>
+<ul>
+    <li><a href="#Reports">3.1. レポート</a></li>
+	  <li><a href="#With_JS">3.2. Javascriptを使用</a></li>
+    <li><a href="#Other_Mod">3.3. 関連する補遺</a></li>
+  </ul>
+</li>
+<li><a href="#Board_Customization">4. 掲示板のカスタマイズ</a></li>
+</div>
+<h2 id="#Board_Creation">1. 掲示板の作成</h2>
+<p>
+掲示板の作成は、<a href="https://modchan.org/login.html">ユーザーアカウント</a>を作成してから、そのアカウントにアクセスするのと同じくらい簡単です。 アカウントを作成するために有効な確認済みのメールアドレスは必要ありませんが、掲示板を作成または申請する場合は必要です
+</p>
+<h3 id="#BC_Requirements">1.1. 要件</h3>
+モッドちゃんねるで掲示掲示板を所有するために必要な条件は、<a href="https://modchan.org/login.html">ユーザーアカウント</a>と認証されたメールアドレス、そして<a href="https://modchan.org/.static/pages/globalRules.html">規約</a>に従うことの2つだけです。<b><i>すべての</i></b>掲示掲示板の所有者は、規約に精通し、それを遵守することが求められます。
+<h3 id="#Claims">1.2. 請求</h3>
+*放棄された*タグの付いた既存の掲示板にクレームを入れるには、<a href="https://modchan.org/login.html">ユーザーアカウント</a>を作成し、<a href="mailto:modadmin@protonmail.com">管理チーム</a>にメールを送るだけです。そのメールには、希望する掲示板とユーザーアカウント名を必ず明記してください。なお、この場合もメールアドレスの認証が必要となります。
+<h3 id="#User">1.3. ユーザーアカウント</h3>
+<p>
+  ユーザーアカウントの作成は簡単です。<a href="https://modchan.org/login.html">ユーザーアカウント</a>のセクションに移動し（デフォルトのCSSでは、CSS選択ドロップダウンの右にある稲妻です）、ユーザー名とパスワードを選択し、電子メールアドレスを追加します。サーバーから自動的に認証<br>メールが送られてきます。これが完了すると、<a href="Moderation_files\user account.png" target="_blank">これ</a>という画面が表示されます。オプションは
+  <p style="margin-left:3%">
 
-      <h1>Global moderation</h1>
-      Any account have a numeric global role assigned to it. If this role is
-      lesser than 4, it means the user is in the global staff.
-      <br>
-      Root: 0
-      <br>
-      Admin: 1
-      <br>
-      Volunteer: 2
-      <br>
-      Janitor: 3
-      <br>
-      Anything above 3 or undefined is considered a regular user. Janitors are
-      able to delete any post or thread on the site and to close global reports.
-      <br>
-      Volunteers are able able to lift and issue any kind of global ban.
-      <br>
-      Admins are able to add or remove volunteers and janitors, to delete and
-      transfer boards. They are also able to create boards when board creation
-      is disabled.
-      <br>
-      Roots are able to assign admins.
-      <br>
-      The first admin or root will have to have it's role set using the terminal
-      arguments. Consult the readme.md on src/be for instructions on that. Any
-      role have all the powers of the less <span title="[TRIGGER WARNING] :^)">privileged</span>
-      roles. When your account has access to the global staff tools, a link on
-      your account page will be displayed.
-
-      <h1>Board moderation</h1>
-      A board have it's board owner and board volunteers. Board volunteers are
-      added by the board owner and are able to delete content on the board,
-      lock, pin, make threads cyclic, close board reports, change board
-      settings, and apply bans for the board.
-      <br>
-      Board owners are able to do that, plus they are able to transfer or delete
-      their own boards, add board banners, filters, custom css and rules.
-
-      <h1>Custom CSS</h1>
-      Board owners can add a css file to their boards, just using the upload
-      form on the board management page. To delete the custom css file, click
-      the upload button without entering any files.
-
-      <h1>Reports</h1>
-      Any non-banned user is able to report content, as long as said content
-      haven't been reported yet.
-      <br>
-      Open reports will be displayed on the main moderation page with a link to
-      the reported content and a button to close the report.
-      <br>
-      Closed reports are not deleted until the content they relate to is
-      deleted. It is also possible to ask for the engine to delete the reported
-      content when closing the reports.
-
-      <h1>Deleting content</h1>
-      As long as you are logged in, your global role and board role will be
-      verified when you try to delete content AS LONG AS YOU DON'T INPUT A
-      PASSWORD.
-      <br>
-      If you input a password, your account will not be validated and the system
-      will try to use the deletion password you provided.
-      <br>
-      Not only its possible to delete content, but also to only delete the files
-      posted on the content.
-      <br>
-      Regular file deletion will just remove the reference to the file, while
-      media deletion will actually wipe the file from the site. Media deletion
-      is only usable by global staff.
-      <br>
-      Global staff is also allowed to use a clear IP to delete content from this
-      IP across the whole site. Board staff can use IP deletion, but it will be
-      restricted to the board of the first selected post to be deleted by IP
-      deletion.
-
-      <h1>Acessing moderation tools</h1>
-      When you open a thread, there will be a link that will lead you to the
-      moderation page for that board and thread, with all the moderation tools
-      for that thread.
-
-      <h1>Thread settings</h1>
-      Threads have 3 settings: pin, lock and cyclic.
-      <br>
-      Pin will make a thread be listed above all others, no matter how long it
-      was it's last bump.
-      <br>
-      Lock will prevent anyone from posting on a thread.
-      <br>
-      Cyclic will make the thread never get into auto-sage. Instead it will
-      delete old posts when it hits the post limit that would trigger auto-sage.
-
-      <h1 id="banSection">Bans</h1>
-      To apply bans, select the checkboxes on the left top corner of postings
-      and write a duration for the ban. The format used is the following:
-      <br>
-      <b>y</b>: amount of years.
-      <br>
-      <b>M</b>: amount of months.
-      <br>
-      <b>d</b>: amount of days.
-      <br>
-      <b>h</b>: amount of hours.
-      <br>
-      <b>m</b>: amount of minutes.
-      <br>
-      So if you write "2d 1h" it will create a 49 hour ban. The order of amounts
-      and spacing doesn`t matter. The same could be "1h 2d".
-      <br>
-      Board staff is also required to fill the captcha.
-      <br>
-      Bans can be lifted from the bans page that can be accessed from the
-      moderation pages.
-      <br>
-      Optionally, you can enter the ban reason and message. The ban message will
-      be displayed on the post itself instead of the default ban message set in
-      the site configurations. Global staff with the power to apply bans can
-      select the checkbox to apply a global ban.
-      <br>
-      The ban reason will appear for both the user and on the bans list.
-
-      <h1>Range bans</h1>
-      It is also possible to ban entire ranges of ips. When banning an user,
-      select the ban mode. Range bans can use either the first half or the first
-      three quarters of the user ip. Alternatively, it is possible to manually
-      ban a known IP on the range bans page.
-
-      <h1>Hash bans</h1>
-      Files can also be banned, keeping anyone from posting them. Copy the sha256
-      of the file shown in the thread moderation page and input it on the hash
-      bans page.
-
-      <h1>Board settings</h1>
-      There are many ways to customize how a board works in general.
-      <br>
-      The [code] tag allows for posts to transform text in this tag into a
-      non-formated text that is best used to display code.
-      <br>
-      The name used for anonymous posters, board name and description can also
-      be changed.
-      <br>
-      Board message will be displayed above the posting form and accepts any
-      most of posting markdown plus custom links using [displayed
-      text](address).
-      <br>
-      Adding a custom CSS will cause this file to be used after all other CSS
-      files on board, thread and catalog of the board.
-      <br>
-      A custom JS can only be added if allowed by the global setings.
-      <br>
-      A custom spoiler will replace any spoiled files on the board.
-      <br>
-      Location flags can be toggled. They won't work if the site doesn't have
-      the location data installed.
-      <br>
-      Custom flags can be selected by users when they post, being shown in place
-      of a flag representing their location.
-      <br>
-      Tags will be shown on the board listing and can be used to search for
-      boards.
-      <br>
-      Captcha mode allows for greater control on when an user has to use a
-      captcha to post. Not only is possible to set for captchas to be required
-      always or never, but it's also possible to set it to be used only when
-      creating threads.
-      <br>
-      Textboard mode will disable the uploading of files entirely. It is also
-      possible for users be required to always upload at least one file when
-      creating a new thread.
-      <br>
-      Unique files and posts will require that users do not upload files that
-      are already present on the board or that post similar posts.
-      <br>
-      By default users have an id unique to them inside threads, this feature
-      can be disabled for greater anonymity.
-      <br>
-      If you set users to not be allowed to delete their own posts, only staff
-      members will be allowed to delete them.
-      <br>
-      If forced anonymity is toggled, then users won't be able to use a name
-      when posting. They will still be allowed to use role signatures, however.
-      <br>
-      Early 404 will cause threads that have less than 5 replies to be deleted
-      when they leave the top third threads.
-      <br>
-      It is possible to make some posting more strict than the global values:
-      <br>
-      Amount of files
-      <br>
-      Maximum size for files
-      <br>
-      Maximum amount of threads on the board
-      <br>
-      Maximum amount of replies on threads
-      <br>
-      Valid file formats that can be uploaded to the board.
-      <br>
-      Any value greater or not included on the global values will be ignored.
-
-      <h1>Filters</h1>
-      Filters change a term for another term.
-
-      <h1>Banners</h1>
-      One can add customized banners for a board, they will be displayed
-      randomly for users.
-
-      <h1>Rules</h1>
-      Rules can be written and will be made visible on the rules.html page of
-      the board.
-
-      <h1>Board message markdown</h1>
-      It is similar to standard posting markdown with some differences:
-      <br>
-      It won't handle quotes.
-      <br>
-      Links won't be handled the same way, you have to use standard markdown for
-      them.
-      <br>
-      For example: [A link](http://hurr.durr) becomes
-      <a href="http://hurr.durr">A link</a>
-      <br>
-      [code] tag won't be applied.
-
-    </fieldset>
-
-  </div>
-
+<b>モデレーションマニュアル</b>：モデレーションの仕組みを説明した文書です。
+<br>
+<b>E-mail</b>：メールにアクセスできなくなったり、単に別のアドレスを使いたい場合に、記録されているメールを変更することができます。
+<br> 
+<b>常にロールサインを使用する</b>: これは、投稿者が誰が投稿したのか役割を確認できるように、名前の横にユニークな署名を付けて投稿する、キャップコードの方法です。掲示板で名前欄を有効にしている場合、あなた（およびすべてのVOL）は、入力された名前の後や空白の欄に#rを追加することでもこれを実現できます。これが推奨されるキャップコードの方法です。
+<br>
+<b>電子メールによるレポート通知の受信</b>: これは、あなたの掲示板が生成したすべてのレポートで、上記に保存されたアドレスに自動的にメールを送ります。
+<br>
+<b>グローバルリストに掲示板レポートを表示しない</b>: これは、あなたのレポート キューで掲示板 レポートをオフにし、グローバル レポートのみを表示します。しかし、グローバル レポートはグローバル スタッフにしか表示されませんので、掲示板 オーナーとしてはこのオプションを使用すべきではありません。
+<br>
+<b>パスワードの変更</b>：このセクションは説明不要のはずです。
+<br>
+<b>アカウントの削除</b>：これはあなたのユーザー アカウントを削除しますが、所有している掲示板は削除されません。
+<br>
+<b>所有している掲示板</b>。所有している掲示板はここに表示され、クリックすると<a href="Moderation_files\board settings crop.png" target="_blank">掲示板管理</a>のページが表示され、以下のように説明されます。
+<br>
+<b>ボランティア掲示板/最新の掲示物</b>: これは、モデレーションの目的では<i>非常に</i>貴重なツールです。最新の投稿」をクリックすると、最新の投稿が表示されますが、これは自分が所有しているか、ボランティアで参加している掲示板に限られます。このページでお好みのブラウザのタブ・リロード・アドオンを使用することは、あなたの掲示板（複数可）を監視する最も効率的な方法です。
+<br>
+<b>掲示板作成</b>: 掲示板の URL は、あなたの掲示板の実際の URL になります。このガイドに掲載されている例では、URLが「Kwyjibo」であるため、掲示板は「/kwyjibo/」と表示され、「https://modchan.org/kwyjibo/」のリンクからアクセスできます。これは後から変更することはできません。Board Nameは、あなたの掲示板の名前です。掲示板の説明（掲示板の説明）は、掲示板の説明で、掲示板のインデックスページの掲示板名の下に表示されます。掲示板名と説明文は、いつでも変更することができます。
+</p>
+<h2 id="#Board_Settings">2. 掲示板設定</h2>
+<p style="margin-left:3%">
+<b>バナーの管理：</b> <a href="#Board_Customization">掲示板のカスタマイズ</a>のセクションを参照してください。
+<br>
+<b>フィルタの管理：</b> ワードフィルターの追加や削除を行うオプションです。動作例は <a href="Moderation_files\filters.png" target="_blank">こちら</a> を参照してください。
+<br>
+<b>ルールの管理：</b> あなたの掲示板のルールを番号順に設定します。ユーザーは、ローカル掲示板のルールのリンク（掲示板インデックスの投稿ウィンドウの下、またはスレッドの中にある）をクリックすることで見ることができます。デフォルトでは、ルールは追加した順に番号が付けられますが、後からいつでも1つずつ編集や削除が可能です。
+<br>
+<b>フラグの管理：</b> <a href="#Board_Customization">掲示板のカスタマイズ</a> のセクションを参照してください。
+<br>
+<b>アピールされたBANをゴミ箱に入れる:</b> <a href="#Board_Moderation">掲示板モデレーション</a>のセクションをご覧ください。
+<br>
+<b>掲示板名：</b> あなたの掲示板の名前です。これを変更しても掲示板のURLは変更されませんのでご注意ください。
+<br>
+<b>掲示板の説明：</b> <a href="https://modchan.org/boards.js">掲示板リスト</a>を閲覧したときにユーザーが見ることができる簡単な説明です。
+<br>
+<b>匿名名：</b> すべてのユーザーがデフォルトで持つ名前です。これを空白にすると、すべてのユーザーに「名無し」という名前が与えられます。
+<br>
+<b>最大ファイル数：</b> ユーザーが1つの投稿にアップロードできるファイルの数です。世界的には5ファイルまでとなっています。
+<br>
+<b>最大ファイルサイズ：</b> 1つの投稿でアップロードできるファイルの大きさです。グローバルな制限は32MBです。
+<br>
+<b>非周期的なスレッドが作成されてから何日間バンプすることができるか：</b> スレッドに有効期限を設定することができます。これは、あなたの掲示掲示板がスポーツ競技や授賞式などの時限的なイベントに焦点を当てている場合に便利です。この有効期限に達すると、掲示板は自動熟成を開始します。このフィールドを空にすると、有効期限はありません。
+<br>
+<b>返信制限（自動下限）：</b> 1つのスレッドに何回投稿したら、投稿するたびにカタログの一番上にぶつからなくなるかを設定します。グローバルでの制限は600です。
+<br>
+<b>許可されるファイルの種類：</b> 特定の種類のファイルだけを許可したい場合は、このボックスに追加します。デフォルトでは、8ちゃんねるで許可されているすべての種類のファイルが、あなたの掲示掲示板でも許可されます。
+<br>
+<b>スレッド制限：</b> あなたの掲示掲示板で同時に実行されるスレッドの最大数を設定します。世界の上限は450です。
+<br>
+<b>1時間あたりのスレッド制限：</b> 60分以内にx個以上のスレッドが作成された場合、スレッド作成が60分間ロックされます。これは、あなたの掲示掲示板を狙ったスパム攻撃があった場合に非常に有効な手段となります。
+<br>
+<b>この数のスレッドが1時間以内に作成された場合は、新しいスレッドのキャプチャを有効にします：</b> 60分以内にx個以上のスレッドが作成された場合、スレッド作成時に自動的にcaptchaが要求されるようになります。これは、スパム攻撃の際にも有効なツールとなります。
+<br>
+<b>この多くの返信が1時間以内に投稿された場合は、すべての投稿に対してキャプチャを有効にします：</b> 上記と同じですが、スレッドではなくポストを対象とします。
+<br>
+<b>タグ：</b> あなたの掲示板にタグを追加します。タグは掲示板名や説明とともに <a href="https://modchan.org/boards.js">掲示板リスト</a>に表示されます。
+<br>
+<b>掲示板メッセージ：</b> このタグは、あなたの掲示板の名前の下に表示されます。
+<br>
+<b>位置情報フラグ：</b> このドロップダウンには、「無効」（オフ）、「有効」（投稿者がどのフラグで投稿するか選択できる）、「必須」（投稿者が選択できない）の3つのオプションがあります。
+<br>
+<b>キャプチャモード：</b> このドロップダウンには3つのオプションがあります。
+<br>
+<b>優先言語：</b> これは、特定の掲示板要素を選択した言語に自動的に翻訳します。この機能は開発中のもので、現在は限られた機能しかありません。
+<br>
+<b>スレッド全体のIDを無効にします。</b> 投稿者の名前の後に固有のID文字列を表示します。このIDはスレッド単位でのみ特定され、同じ投稿者が異なるスレッドに投稿するたびに異なるIDを持つことになります。Torposterだけが一貫したID(000000)を持つことになります。
+<br>
+<b>新しいスレッドには少なくとも1つのファイルが必要です。</b> 投稿者が新しいスレッドを作成するときに、少なくとも 1 つのファイルを含めるように強制します。
+<br>
+<b>テキスト掲示板：</b> <i>すべての</i>ファイル種類を掲示掲示板に投稿できないようにします。これはある種のスパムを処理するのに役立ちます。
+<br>
+<b>ユーザーによる投稿の削除をブロックします。</b> デフォルトでは、ユーザーはどんな理由でも自分の投稿を削除することができます。この機能を無効にして、ボランティアだけが削除できるようにします。
+<br>
+<b>コードタグの使用を許可する：</b> ユーザーが投稿時に [code] タグを使用することを許可または禁止します。
+<br> 
+<b>トップ掲示板と掲示板リストにインデックスを付けないでください：</b> これにより、掲示板オーナーは自分の掲示板を閲覧者から「隠す」ことができ、自分の掲示板が Top Boards ティッカーに表示されないようにします。グローバルなボランティアと管理者は、通常通り、隠された掲示板とそこにあるコンテンツを見たり、交流したりすることができます。
+<br>
+<b>匿名性を強制する：</b> ユーザーが投稿時に おなまえ フィールドを使用することを禁止します。掲示板のボランティアやオーナーは、自分の役割の署名を投稿に加えることができます。
+<br> 
+<b>4初期の404エラー：少なくとも 5 回の返信がないスレッドは、上位 1/3 のスレッドから外れた後に削除されます:</b>自明。
+<br>
+<b>ユニークなファイル：</b> 個々のファイルは、いつでも自分の掲示掲示板に1つだけ投稿できます。つまり、あなたが「cute_cat.jpeg」と投稿した場合、その最初の投稿が削除されるまで、他の誰もその画像をあなたの掲示掲示板の他のスレッドに投稿することはできません（自然に、投稿者やボランティアによって削除されます）。
+<br>
+<b>ユニークな投稿：</b> ユーザーが他の投稿者とまったく同じ文章を投稿するのを防ぎます。スパマーが全く同じメッセージを繰り返すようなスパムの波の中では有効ですが、回避するのも簡単です。
+</p>
+<h2 id="#Board_Moderation">3. 掲示板モデレーション</h2>
+<p>
+あなたの掲示板のモデレーションは、あなたの好きなように厳しくもあり、緩くもあります。あなたの掲示掲示板を、抑制の効いた楽しい投稿の渦にしたいのか、特定のトピックにしっかりと焦点を当てたレーザーにしたいのか、選択はあなた次第です。ただし、前述したように、どんなに緩やかなモデレーションにしても、<a href="https://modchan.org/.static/pages/globalRules.html">規約</a>は、あなたの掲示板上で常に守られなければなりません。モデレーションは、Javascriptを使用して、ポスト（またはポスター）ごとに簡単にクリックできる機能を提供することも、Javascriptを使用せずに、ほぼ同じ機能（およびいくつかの追加オプション）を提供することもできます。
+<h3 id="#Reports">3.1. レポート</h3>
+あなたの掲示掲示板を訪れた人は、ルール違反のある投稿を報告することができます。報告書がどのように見えるか、またボランティアや掲示板オーナーがキューの中の報告書をどのように処理するかについては、左の画像を参照してください。このキューに入るには、<a href="https://modchan.org/login.html">ユーザーアカウント</a>に入り、所有する掲示板という見出しの下にある自分の掲示板の名前をクリックして、「レポートを開く」をクリックします。このキューには、現在開かれているすべてのレポートが表示され、ページ上部にはオプションが表示されます。これらのオプションにより、Javascriptを使用せずにレポートのモデレーションを行うことができ、また、一度に多数の投稿や、最初に投稿を報告した人のモデレーションに関するより強固なツールを使用することができます。上から順に、これらのオプションは次のとおりです。
+<p style="margin-left:3%">
+<b>これらの報告者のすべてのレポートを閉じる：</b> このチェックボックスをクリックし、最初のレポートの投稿者の名前の左側にあるチェックボックスをクリックして、「選択したレポートを閉じる」をクリックするだけです。これにより、その投稿を報告したユーザーが作成したすべてのレポートが自動的に閉じられます。
+<br>
+<b>レポートを閉じた後、レポートされたコンテンツを削除します</b> これは、選択した報告された投稿を削除してから、その報告を閉じます。
+<br>
+<b>禁止対象：</b> このドロップダウンには3つのオプションがあります。なし」、「役職」、「レポーター」です。これは、選択した報告された投稿に基づいて、選択したユーザーを禁止します。役職」は報告されたコンテンツを投稿した人を禁止し、「レポーター」は報告した人を禁止しますので、ユーザーがレポートをスパムしている場合に便利です。
+</p>
+これらのオプションの下には、報告されたすべての投稿が表示され、次のセクションで説明するJavascriptを使用してそれらを操作することができます。
+<h3 id="#With_JS">3.2. Javascriptを使用する</h3>
+Javascriptを使用して、掲示板やレポートキューに表示される投稿を操作したり、モデレートしたりすることができます。<a href="Moderation_files\javascript.png" target=_blank>こちら</a>のように、投稿者の名前の横にある小さな右向きの三角形をクリックすると、図4のようなメニューが表示されます。掲示板オーナーはほぼすべてのオプションを見ることができますが、一般ユーザーやボランティアには表示されないものもあります。上から下に向かって、これらのオプションがあります。
+<p style="margin-left:3%">.
+<b>報告：</b> このオプションをクリックすると、この投稿をローカルに報告します。つまり、ユーザーが/kwyjibo/に投稿を報告した場合、私のローカルの報告キューにのみ表示されます。ユーザーアカウントを持っていない人やログインしていない人も含めて、どのユーザーでも報告できます。
+<br>
+<b>グローバルレポート：</b> このオプションは、この投稿をグローバルキューに報告し、グローバルスタッフだけが見ることができます。問題の投稿が<a href="https://modchan.org/.static/pages/globalRules.html">規約</a>のいずれかに違反している場合を除き、この使用は避けてください。これには例外があり、このガイドの最後で説明します。
+<br>
+<b>投稿を削除：</b> この投稿を削除します。投稿の削除はボランティア以上の人しかできません。
+<br>
+<b>ゴミ箱の投稿：</b> この投稿をソフト的に削除し、掲示掲示板の ごみ箱 に入れます。投稿は当該スレッドや掲示掲示板から消えますが、掲示掲示板のオーナーや管理者は事後的に投稿を復元することができます。
+<br>
+<b>ファイルのリンクを解除する：</b> 問題のある投稿からすべてのファイルを削除しますが、投稿はそのまま残ります。
+<br>
+<b>ネタバレファイル：</b> 対象の投稿に添付されているすべての画像にネタバレ画像を適用します。
+<br>
+<b>IP/バイパスによる削除：</b> 投稿者のすべての投稿を自分の掲示掲示板から削除します。これはIP+バイパスベースで行われ、ユーザーが投稿できるようになる前に記入するキャプチャーの1つです。このオプションは、<i>非常に確実</i>でない限り使用しないでください。
+<br>
+<b>禁止：</b> <a href="Moderation_files\ban.png" target="_blank">禁止 (禁止)ウィンドウが表示されます。
+</p>
+  <p style="margin-left:5%">
+    <b>答え：</b> このウィンドウの上部に表示されているキャプチャの答えです。
+    <br>
+    <b>理由：</b> 投稿者に禁止の理由が表示され、掲示掲示板のログにも禁止の理由が表示されるようになります。
+    <br>
+    <b>間隔：</b> 禁止の期間です。日は "d"、時間は "h"、分は "m "というコードを使います。つまり、あるユーザーを4時間30分禁止したい場合、禁止の長さを「4h30m」または「270m」とします。このフィールドを空にしておくと、<u>禁止は永久に続く</u>ことになります。
+    <br>
+    <b>メッセージ:</b> 禁止された投稿の本文の下に、大きくて赤いメッセージを設定します。<a href="Moderation_files\banned.png" target="_blank">図 6.</a>に見られるように、デフォルト（このフィールドが空のままの場合）は「ユーザーはこの投稿で禁止されました」です。
+    <br>
+    <b>種類：</b> このドロップダウンメニューには5つのオプションがあり、どのような種類の禁止を発行するかを選択します。
+      <p style="margin-left:7%">以下のようになります。
+        <b>--IP/バイパスの禁止：</b> このデフォルトの禁止の種類です。選択した時間の間、このIPとバイパスが投稿できないようにします。
+        <br>。
+        <b>--範囲禁止 (1/2 オクテット):</b> 標準的なIPアドレスは4つのオクテットで構成されており、その結果、IPは通常xxx.xxx.xxx.xxxのようになります。このオプションは、最初の2オクテットを投稿禁止にします。このオプションは、最初の2つのオクテットを投稿禁止にします。ただし、範囲指定の禁止は不正確なことが多いので、十分注意してください。
+        <br>
+        <b>--範囲禁止 (3/4 オクテット):</b> 最初の<i>3</i>オクテットを禁止すること以外は、上記と同じです。
+        <br>。
+        <b>--ASNの禁止：</b> ASNとは、基本的にIPアドレスの分類です。多くの ISP は、顧客へのサービス提供 (または監視) を容易にするために、IP アドレスを ASN によってグループ化しています。このオプションは、ASN全体の投稿を禁止します。ASNの詳細については、<a href="https://www.whatismyip.com/asn/" target="_blank">この記事</a>をご覧ください。
+        <br>
+        <b>--IP/バイパス警告：</b> このオプションは基本的に「一時的な禁止」として機能し、（あなたが設定した）長さが経過するか、ユーザーが次回投稿しようとしたときに表示されるポップアップである<a href="Moderation_files\warning.png" target="_blank">（図X）</a>を見るまで有効です。この警告をクリックすると、通常通りの投稿が可能になります。
+      </p>
+      <p style="margin-left:5%">
+      <b>削除アクション：</b> さらに4つのオプションがある別のドロップダウン。
+        <p style="margin-left:7%">
+          <b>--削除しないでください：</b> これは、ユーザーを禁止しながら投稿を残し、禁止メッセージを表示します。なお、投稿を残したまま禁止メッセージを表示しないという選択肢はありません。
+          <br>
+          <b>--投稿を削除：</b> ユーザーを禁止して、その投稿を削除します。
+          <br>
+          <b>--投稿とメディアを削除します。</b> 投稿とその投稿に添付されたファイルを削除します。<br> <b>Delete post:</b> ユーザーを禁止し、投稿を削除します。
+          <br>
+          <b>--IP/バイパスによる削除：</b> ユーザーを禁止し、そのユーザーの掲示掲示板への投稿をすべて削除します。これは核心的なオプションであり、前述のように細心の注意を払って使用する必要があります。
+        </p>
+        <p style="margin-left:5%">
+        <b>バイパス不可：</b> このチェックボックスがオフの場合、ユーザーは新しいバイパスに入力して投稿を続けることができます。 チェックされている場合、有効期限が切れるまでIPが上記の禁止をバイパスできないようにします。
+      </p>
+    </p>
+<br>
+<h3 id="#Other_Mod">3.3. 関連する補遺</h3>
+<br>
+ボランティアを追加または削除するには、掲示板管理ページに移動します。
+<br>
+<h2 id="Board_Customization">4. 掲示板のカスタマイズ</h2>
+<a href="Moderation_files\board settings crop.png" target="_blank">掲示板管理</a>ページには、掲示板をカスタマイズするためのオプションがいくつか用意されていました。これについては後で詳しく説明します。
+<p style="margin-left:3%">
+<b>カスタムCSS：</b> カスタムCSSは、自分の掲示板をカスタマイズするために、興味のあるユーザーが開発することができます。詳細は追ってご連絡します。
+<br>
+<b>カスタム</b> </b>説明は不要です。このオプションは現在無効で、開発中です。あなたがアップロードしたものは、あなたの掲示板に保存/適用されません。
+<br>
+<b>カスタムスポイラーです。</b> これは、投稿者またはボランティアによってネタバレされた画像の上に表示される、カスタムのネタバレ画像をアップロードできます。サイズは128x128ピクセルです。
+<br>
+<b>バナーを管理する。</b> 掲示板にカスタムバナーをアップロードすることができます。このバナーは、<a href="Moderation_files\index.png" target="_blank">掲示板のインデックス、カタログ、個々のスレッドのトップに表示されます。複数のバナーが登録されている場合は、更新のたびにランダムに1つが表示されます。バナーのサイズは300x100で、フォーマットはjpeg、png、gifのいずれかです（つまり、バナーをアニメーション化することができます）。
+</p>
 </body>
 
 <script src="/.static/js/api.js"></script>
