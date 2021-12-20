@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+</head>
+<body>
+
+  
+
+  <nav id="dynamicHeader"></nav>
+
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
+
+  <div id="settingsWrapper">
+
+    <fieldset id="settingsFieldset">
+
+      <legend id="labelTitle"></legend>
+
+      <p>
+        オーナー：
+        <a id="linkOwner"></a>
+      </p>
+
+      <p>
+        最後に見たのは：<span id="labelLastSeen"></span>
+      </p>
+
+      <div
+        id="divVolunteers"
+        class="linkList">
+        <hr>
+        <h3>ボランティア：</h3>
+      </div>
+
+      <hr>
+      <div>
+        <p class="title">所有権移転</p>
+        <form
+          method="post"
+          action="/transferBoardOwnership.js"
+          enctype="multipart/form-data">
+          <label>
+            ユーザーログイン：
+            <input
+              type="text"
+              name="login"
+              class="transferField"
+              id="fieldTransferLogin"
+              name="userLogin">
+          </label>
+          <input
+            type="hidden"
+            name="boardUri"
+            id="boardTransferIdentifier">
+          <button
+            type="submit"
+            id="transferFormButton">トランスファ板</button>
+
+        </form>
+      </div>
+      <hr>
+      <div>
+        <p class="title">板削除</p>
+        <form
+          method="post"
+          action="/deleteBoard.js"
+          enctype="multipart/form-data">
+          <label>
+            <input
+              type="checkbox"
+              class="deleteBoardField"
+              name="confirmDeletion"
+              id="confirmDelCheckbox">
+            はい、この板の削除を希望します
+          </label>
+          <input
+            type="hidden"
+            name="boardUri"
+            id="boardDeletionIdentifier">
+          <button
+            type="submit"
+            id="deleteFormButton">板の削除</button>
+
+        </form>
+      </div>
+      <hr>
+      <div>
+        <p class="title">特別設定</p>
+        <form
+          method="post"
+          enctype="multipart/form-data"
+          action="/setSpecialBoardSettings.js">
+          <label>
+            <input
+              type="checkbox"
+              class="specialSettingsField"
+              name="sfw"
+              id="checkboxSfw">
+            卑猥な板ではない
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              class="specialSettingsField"
+              name="locked"
+              id="checkboxLocked">
+            ロックされた
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              class="specialSettingsField"
+              name="allowJs"
+              id="checkboxAllowJs">
+            常にカスタムJSを許可する
+          </label>
+          <input
+            type="hidden"
+            name="boardUri"
+            id="specialSettingsIdentifier">
+          <button
+            type="submit"
+            id="saveSpecialFormButton">特別設定の保存</button>
+
+        </form>
+      </div>
+
+    </fieldset>
+  </div>
+
+</body>
+
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/boardModeration.js"></script>
+<script src="/.static/js/themes.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+
+</html>

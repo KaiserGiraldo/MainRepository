@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/posting.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/thread.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/threadPage.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/boardContent.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/watcher.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/settingsMenu.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/sideCatalog.css"
+  type="text/css"
+  rel="stylesheet" />
+</head>
+<body>
+
+  
+
+  <nav>
+    <span id="navLinkSpan"> <span>[</span> <a
+        href="/"
+        class="coloredIcon"
+        id="navLinkHome"></a> <span>/</span> <a
+        href="/boards.js"
+        class="coloredIcon"
+        id="navBoardList"></a> <span>/</span> <a
+        href="/overboard"
+        class="coloredIcon"
+        id="navOverboard"></a> <span>/</span> <a
+        href="/.static/pages/posting.html"
+        class="coloredIcon"
+        id="navPosting"></a> <span>]</span>
+    </span> <span id="navBoardsSpan"> </span> <span id="navOptionsSpan"> <span>[</span>
+      <a
+        href=".."
+        id="linkBack"
+        class="coloredIcon"></a> <span>/</span> <a
+        href="#bannerImage"
+        id="linkTop"
+        class="coloredIcon"></a> <span>/</span> <a
+        href="#footer"
+        id="linkBottom"
+        class="coloredIcon"></a> <span>/</span> <a
+        href="../catalog.html"
+        id="navCatalog"
+        class="coloredIcon"></a> <span>]</span>
+    </span>
+  </nav>
+
+  <div
+    class="hidden"
+    id="sideCatalogDiv">
+
+    <div id="sideCatalogHeader">
+
+      <button
+        id="sideCatalogRefreshButton"
+        class="catalogLabel">更新</button> <span
+        id="closeSideCatalogButton"
+        class="coloredIcon glowOnHover"></span>
+    </div>
+
+    <div id="sideCatalogBody"></div>
+
+  </div>
+
+  <div id="mainPanel">
+
+    <header class="boardHeader">
+      <img id="bannerImage" />
+      <div>
+        <p id="labelName"></p>
+      </div>
+      <p id="labelDescription"></p>
+    </header>
+
+    <div id="postingForm">
+
+      <fieldset id="newPostFieldset">
+        <legend>モード：返信</legend>
+
+        <form
+          action="/replyThread.js"
+          enctype="multipart/form-data"
+          method="post">
+
+          <input
+            type="hidden"
+            name="threadId"
+            id="threadIdentifier">
+
+          <table id="postingTable">
+          </table>
+
+          <p class="small">
+            <a
+              href="../rules.html"
+              class="rules">利用規約</a>
+              に従うことを忘れないでください。
+          </p>
+
+          <button
+            type="submit"
+            id="formButton">返信する</button>
+
+        </form>
+
+      </fieldset>
+
+    </div>
+
+    <div id="divControls">
+
+      <form
+        action="/changeThreadSettings.js"
+        method="post"
+        enctype="multipart/form-data">
+
+        <fieldset id="settingsFieldset">
+          <legend>スレッド設定</legend>
+
+          <label>
+            <input
+              name="lock"
+              class="threadSettingsField"
+              id="checkboxLock"
+              type="checkbox">
+            ロック
+          </label>
+          <label>
+            <input
+              class="threadSettingsField"
+              name="pin"
+              id="checkboxPin"
+              type="checkbox">
+            ピン
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              class="threadSettingsField"
+              name="cyclic"
+              id="checkboxCyclic">
+            周期的
+          </label>
+
+          <input
+            type="hidden"
+            name="boardUri"
+            id="controlBoardIdentifier">
+          <input
+            type="hidden"
+            name="threadId"
+            id="controlThreadIdentifier">
+          <button
+            type="submit"
+            id="settingsFormButon">保存 </button>
+
+        </fieldset>
+      </form>
+
+    </div>
+    <div id="divArchive">
+
+      <form
+        action="/archiveThread.js"
+        method="post"
+        enctype="multipart/form-data">
+
+        <fieldset id="settingsFieldset">
+          <legend>アーカイブスレッド</legend>
+
+          <label>
+            <input
+              name="confirmation"
+              class="archiveField"
+              id="checkboxArchive"
+              type="checkbox">
+            はい、このスレッドをロックしてアーカイブしたいと思います。
+          </label>
+
+          <input
+            type="hidden"
+            name="boardUri"
+            id="archiveBoardIdentifier">
+          <input
+            type="hidden"
+            name="threadId"
+            id="archiveThreadIdentifier">
+          <button
+            type="submit"
+            id="archiveFormButon">アーカイブ</button>
+
+        </fieldset>
+      </form>
+
+    </div>
+
+    <div id="transferControls">
+
+      <form
+        action="/transferThread.js"
+        enctype="multipart/form-data"
+        method="post"
+        id="formTransfer"
+        class="formTransfer">
+
+        <fieldset id="settingsFieldset">
+          <legend>転送スレッド</legend>
+
+          <input
+            type="hidden"
+            name="boardUri"
+            id="transferBoardIdentifier">
+
+          <input
+            type="hidden"
+            name="threadId"
+            id="transferThreadIdentifier">
+
+          <label>
+            デスティネーション板：
+            <input
+              type="text"
+              class="transferField"
+              id="fieldDestinationBoard"
+              name="boardUriDestination">
+          </label>
+
+          <button
+            type="submit"
+            id="transferFormButton">転送スレッド</button>
+
+        </fieldset>
+      </form>
+
+    </div>
+
+    <div id="divMerge">
+
+      <form
+        action="/mergeThread.js"
+        enctype="multipart/form-data"
+        method="post"
+        id="formMerge"
+        class="formMerge">
+
+        <fieldset id="settingsFieldset">
+          <legend>スレッドの統合</legend>
+
+          <input
+            type="hidden"
+            name="boardUri"
+            id="mergeBoardIdentifier">
+
+          <input
+            type="hidden"
+            name="threadSource"
+            id="mergeThreadIdentifier">
+
+          <label>
+            行き先のスレッド：
+            <input
+              type="text"
+              class="mergeField"
+              id="fieldDestinationThread"
+              name="threadDestination">
+          </label>
+
+          <button
+            type="submit"
+            id="mergeFormButton">スレッドを統合する</button>
+
+        </fieldset>
+      </form>
+
+    </div>
+
+    <div id="ipDelete">
+
+      <form
+        id="ipDeletionForm"
+        method="post"
+        action="/deleteFromIp.js"
+        enctype="multipart/form-data">
+
+        <fieldset id="settingsFieldset">
+          <legend>IPから削除</legend>
+
+          <label>
+            ハッシュ化されていないIP：
+            <input
+              type="text"
+              class="ipDeletionField"
+              name="ip"
+              id="ipField">
+          </label>
+          <label>
+            これらの板からだけ削除する（例："b v"、空白にすると削除される）。すべての板から）
+            <input
+              type="text"
+              class="ipDeletionField"
+              name="boards"
+              id="fieldBoards">
+          </label>
+
+          <button
+            type="submit"
+            id="deleteFromIpFormButton">IPから削除</button>
+        </fieldset>
+      </form>
+
+    </div>
+
+    <div id="panelMessage">
+      <hr>
+      <div id="divMessage"></div>
+    </div>
+
+    <div id="threadList">
+
+      <form
+        method="post"
+        action="/contentActions.js"
+        enctype="multipart/form-data">
+
+        <div id="divThreads"></div>
+
+        <hr class="clearer" />
+
+        <div class="divRefresh hidden">
+
+          <input
+            type="button"
+            id="refreshButton"
+            value="更新">
+
+          <label>
+            <input
+              id="checkboxChangeRefresh"
+              type="checkbox"
+              checked>
+            自動 <span id="labelRefresh"></span>
+          </label>
+
+        </div>
+
+        <div id=boardContentLinks>
+          <span>[</span>
+          <a id="linkManagement">板の管理</a>
+          <span>/</span>
+          <a id="linkMod">モデレートスレッド</a>
+          <span>]</span>
+        </div>
+
+        <div id="actionsForm"></div>
+
+      </form>
+
+    </div>
+
+    <footer id="footer"></footer>
+  </div>
+
+</body>
+
+<script src="/.static/js/crypto.js"></script>
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/postCommon.js"></script>
+<script src="/.static/js/captchaModal.js"></script>
+<script src="/.static/js/thumbs.js"></script>
+<script src="/.static/js/tooltips.js"></script>
+<script src="/.static/js/posting.js"></script>
+<script src="/.static/js/thread.js"></script>
+<script src="/.static/js/captchaUtils.js"></script>
+<script src="/.static/js/draggable.js"></script>
+<script src="/.static/js/qr.js"></script>
+<script src="/.static/js/themes.js"></script>
+<script src="/.static/js/settingsMenu.js"></script>
+<script src="/.static/js/hiding.js"></script>
+<script src="/.static/js/mediaHiding.js"></script>
+<script src="/.static/js/embed.js"></script>
+<script src="/.static/js/postingMenu.js"></script>
+<script src="/.static/js/watcher.js"></script>
+<script src="/.static/js/gallery.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+<script src="/.static/js/sideCatalog.js"></script>
+<script src="/.static/js/bottomForms.js"></script>
+<script src="/.static/js/bypassUtils.js"></script>
+
+</html>

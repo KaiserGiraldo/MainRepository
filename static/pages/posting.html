@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+<title>ヘルプ</title>
+</head>
+<body>
+
+  
+
+  <nav id="dynamicHeader"></nav>
+
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
+
+  <div id="settingsWrapper">
+    <fieldset id="settingsFieldset">
+      <legend>ヘルプ</legend>
+
+      <h1>トリップコード</h1>
+      <p>トリップコードを使用するには、名前のところに#を付けてください。の後に トリップコードのパスワード</p>
+      <p>サーバーはパスワードにハッシュを適用し、ハッシュ化されたパスワードを表示します。</p>
+      <p>セキュアトリップコードを利用するには、名前に##を付け、パスワードを設定します。セキュアトリップコードは、パスワードが一致した場合にのみ使用されるランダムなテキストを生成し、表示します。</p>
+
+      <h1>ロールシグネチャー</h1>
+      <p>投稿時にグローバルや板の役割を表示したい場合は、トリップコードのように名前に#rsを大文字小文字を区別せずに入れることができます。これにより、トリップコードを使用しないようにすることができます。</p>
+      <p>また、アカウントで常にロール署名を使用するルールを有効にすることができます。</p>
+
+      <h1>マークダウン</h1>
+      <p>投稿する際に、そのテキストを強化するツールをいくつか使用することができます。HTMLです。</p>
+
+      <h3>緑色の文字</h3>
+      <p>行頭に > を付けると、テキストを緑色で表示します。
+        新しい行を見つけるまで</p>
+      <br>
+      <p>例：</p>
+      <p>
+        >こんにちは！ :^) -> <span class="greenText">>こんにちは！
+          :^)</span>
+      </p>
+
+      <br>
+
+      <h3>引用</h3>
+      <p>投稿に >> と数字を書くと、投稿中の掲示板にこの投稿へのリンクが作成され、javascriptが有効になっていれば投稿プレビューでツールチップを追加してくれます。</p>
+      <br>
+      <p>例：</p>
+      <p>
+        >>50 ->
+        <a href="">>>50</a>
+      </p>
+
+      <br>
+
+      <h3>板リンク</h3>
+      <p>>>と書いて、スラッシュの間に板名を入れると、板へのリンクが作成されます。</p>
+      <br>
+      <p>例：</p>
+      <p>
+        >>>/映画/ ->
+        <a
+          href=""
+          class="quoteLink">>>>/映画/</a>
+      </p>
+
+      <br>
+
+      <h3>クロスクオート</h3>
+      <p>また、他の掲示板の投稿を引用することも可能です。掲示板名の後に投稿番号を追加するだけです。</p>
+      <br>
+      <p>例：</p>
+      <p>
+        >>>/映画/50 ->
+        <a
+          href=""
+          class="quoteLink">>>>/映画/50</a>
+      </p>
+
+      <br>
+
+      <h3>タグ</h3>
+      <p>
+        [spoiler]ゲーム[/spoiler] -> <span class="spoiler">ゲーム</span>
+      </p>
+      <p>
+        **これも効く** -> <span class="spoiler">これも効く</span>
+      </p>
+      <p>
+        ==SRZ BIZNIZ== -> <span class="redText">SRZ BIZNIZ</span>
+      </p>
+      <p>
+        ''イタリック'' -> <em>イタリック</em>
+      </p>
+      <p>
+        '''太字''' -> <strong>太字</strong>
+      </p>
+      <p>
+        __テキストに下線を引く__ -> <u>テキストに下線を引く</u>
+      </p>
+      <p>
+        ~~取り消し線のテキスト~~ -> <s>取り消し線のテキスト</s>
+      <p>
+      <p>[aa]日本語文字用</p>
+      <p>[code]板所有者によって有効にされている場合はタグ</p>
+
+      <br>
+
+      <h3>Urls</h3>
+      <p>httpまたはhttpsで始まるurlを投稿すると、自動的にリンクされます。</p>
+      <br>
+      <p>例：</p>
+      <p>
+        http://bot.net ->
+        <a href="">http://bot.net</a>
+      </p>
+
+    </fieldset>
+
+  </div>
+
+</body>
+
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/themes.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+
+</html>

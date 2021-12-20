@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+</head>
+<body>
+
+  
+
+  <nav id="dynamicHeader"></nav>
+
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
+
+  <div id="settingsWrapper">
+
+    <fieldset id="settingsFieldset">
+
+      <legend>範囲禁止</legend>
+
+      <form
+        action="/placeRangeBan.js"
+        method="post"
+        enctype="multipart/form-data">
+        範囲にはCIDR形式を使用し、範囲サイズを1.2.3.4/16や2001:db8:85a3::/64のように、8 刻みで指定します。
+        <label>
+          禁止される範囲：
+          <input
+            type="text"
+            name="range"
+            class="rangeBanField"
+            id="rangeField">
+        </label>
+        <label>
+          レポート:
+          <input
+            type="text"
+            name="reasonBan"
+            class="rangeBanField"
+            id="reasonField">
+        </label>
+        <label>
+          間隔：
+          <input
+            type="text"
+            name="duration"
+            class="rangeBanField"
+            id="durationField">
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="nonBypassable"
+            class="rangeBanField"
+            id="nonBypassableCheckbox">
+          非バイパス化
+        </label>
+        <input
+          id="boardIdentifier"
+          type="hidden"
+          name="boardUri">
+
+        <button
+          type="submit"
+          id="createFormButton">範囲禁止を配置</button>
+
+      </form>
+      <div id="rangeBansDiv"></div>
+    </fieldset>
+  </div>
+</body>
+
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/rangeBans.js"></script>
+<script src="/.static/js/themes.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+
+</html>

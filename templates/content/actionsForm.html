@@ -1,0 +1,234 @@
+<fieldset class="reportFieldset">
+  <legend>削除</legend>
+
+  <div class="contentAction">
+    <label>
+      パスワード
+      <input
+        type="text"
+        class="deletionField"
+        id="deletionFieldPassword"
+        name="password">
+    </label>
+    <label>
+      <input
+        type="checkbox"
+        class="deletionField"
+        id="checkboxOnlyFiles"
+        name="deleteUploads">
+      ファイルのみを削除する（投稿へのファイル参照を削除します）
+    </label>
+    <label>
+      <input
+        type="checkbox"
+        class="deletionField"
+        id="checkboxMediaDeletion"
+        name="deleteMedia">
+      メディアの削除（サーバーから保存されたファイルを削除します）
+    </label>
+    <button
+      type="submit"
+      id="deleteFormButton"
+      value="delete"
+      name="action">削除</button>
+    <button
+      type="submit"
+      id="trashFormButton"
+      value="trash"
+      name="action">ごみ箱</button>
+
+  </div>
+</fieldset>
+
+<fieldset class="reportFieldset">
+  <legend>レポート</legend>
+
+  <div class="contentAction">
+
+    <label>
+      レポート
+      <input
+        type="text"
+        class="reportField"
+        id="reportFieldReason"
+        name="reasonReport">
+    </label>
+    <label id="reportCategoriesDiv">
+      カテゴリー
+      <select
+        class="reportField"
+        id="reportComboboxCategory"
+        name="categoryReport"></select>
+    </label>
+    <label>
+      <input
+        type="checkbox"
+        class="reportField"
+        id="checkboxGlobalReport"
+        name="globalReport">
+      グローバル
+    </label>
+
+    <div id="divReportCaptcha">
+      <img
+        class="captchaImage"
+        src="/captcha.js">
+
+      <input
+        type="button"
+        class="hidden reloadCaptchaButton"
+        value="リロード">
+      <span class="captchaTimer"></span>
+      <br>
+
+      <input
+        name="captchaReport"
+        type="text"
+        class="captchaField reportField"
+        id="fieldCaptchaReport"
+        placeholder="answer">
+
+      <a
+        href="/noCookieCaptcha.js"
+        class="small">クッキーはありませんか？</a>
+      <br>
+    </div>
+
+    <button
+      type="submit"
+      id="reportFormButton"
+      value="report"
+      name="action">レポート</button>
+
+  </div>
+</fieldset>
+
+<div
+  id="divMod"
+  class="contentAction">
+  <fieldset class="reportFieldset">
+    <legend>禁止</legend>
+
+    <label>
+      禁止期間（デフォルトは5年）：
+      <input
+        class="banField"
+        type="text"
+        id="fieldDuration"
+        name="duration">
+      <a href="/.static/pages/moderation.html#banSection">期間形式</a>
+    </label>
+
+    <label>
+      禁止メッセージ
+      <input
+        class="banField"
+        type="text"
+        id="fieldbanMessage"
+        name="banMessage">
+    </label>
+
+    <label>
+      禁止報告
+      <input
+        class="banField"
+        type="text"
+        id="fieldBanReason"
+        name="reasonBan">
+    </label>
+
+    <label>
+      禁止の種類：
+      <select
+        name="banType"
+        id="comboBoxBanTypes">
+        <option value="0">IP/バイパス禁止</option>
+        <option value="1">範囲禁止（1/2オクテット）</option>
+        <option value="2">範囲禁止（3/4オクテット）</option>
+        <option value="3">ASN禁止</option>
+        <option value="4">IP/Bypass警告</option>
+      </select>
+    </label>
+
+    <label>
+      <input
+        class="banField"
+        type="checkbox"
+        id="checkBoxNonBypassable"
+        name="nonBypassable">
+      非バイパス化
+    </label>
+
+    <label>
+      <input
+        type="checkbox"
+        class="reportField"
+        id="checkboxGlobalBan"
+        name="globalBan">
+      グローバル
+    </label>
+
+    <span id="divBanCaptcha"> <img
+      class="captchaImage"
+      src="/captcha.js"> <input
+        type="button"
+        class="hidden reloadCaptchaButton"
+        value="リロード"> <span class="captchaTimer"></span> <br> <input
+        name="captchaBan"
+        type="text"
+        class="captchaField reportField"
+        id="fieldCaptchaBan"
+        placeholder="answer"> <a
+        href="/noCookieCaptcha.js"
+        class="small">クッキーはありませんか？</a> <br>
+
+    </span>
+
+    <button
+      type="submit"
+      id="inputBan"
+      value="ban"
+      name="action">禁止</button>
+
+    <button
+      type="submit"
+      id="inputBanDelete"
+      value="ban-delete"
+      name="action">禁止して削除</button>
+
+  </fieldset>
+
+  <fieldset class="reportFieldset">
+
+    <legend>その他</legend>
+
+    <label>
+      <input
+        type="checkbox"
+        class="ipDeletionField"
+        name="confirmation"
+        id="ipDeletionConfirmationCheckbox"
+        value="true">
+      IP削除の確認
+    </label>
+
+    <button
+      type="submit"
+      id="inputIpDelete"
+      value="ip-deletion"
+      name="action">この板のIP/バイパスで削除</button>
+
+    <button
+      type="submit"
+      id="inputThreadIpDelete"
+      value="thread-ip-deletion"
+      name="action">このスレッドのIP/バイパスで削除除</button>
+
+    <button
+      type="submit"
+      id="inputSpoil"
+      value="spoil"
+      name="action">ネタバレファイル</button>
+
+  </fieldset>
+</div>

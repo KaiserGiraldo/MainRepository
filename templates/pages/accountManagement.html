@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="/.static/css/global.css">
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="/.static/css/posting.css">
+</head>
+<body>
+
+  
+
+  <nav id="dynamicHeader"></nav>
+
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
+
+  <div id="settingsWrapper">
+
+    <fieldset id="settingsFieldset">
+      <legend>アカウント管理</legend>
+      <h3>アカウント情報</h3>
+      ログイン：<span id="loginLabel"></span>
+      <br>
+      E-mail: <span id="emailLabel"></span>
+      <br>
+      最後に見たのは：<span id="lastSeenLabel"></span>
+      <br>
+      グローバルな役割：<span id="globalRoleLabel"></span>
+      <hr>
+      <h3>所有する板</h3>
+      <div
+        id="ownedBoardsDiv"
+        class="linkList"></div>
+      <hr>
+      <h3>ボランティア・板</h3>
+      <div
+        id="volunteeredBoardsDiv"
+        class="linkList"></div>
+      <hr>
+      <div id="deletionForm">
+        <h3>アカウント削除</h3>
+
+        <form
+          action="/deleteAccount.js"
+          method="post"
+          enctype="multipart/form-data">
+
+          <label>
+            <input
+              id="confirmationCheckbox"
+              type="checkbox"
+              class="deleteAccountField"
+              name="confirmation">
+            はい、このユーザーの板をすべて私に移し、その後アカウントを削除したいのですが。
+          </label>
+
+          <input
+            type="hidden"
+            id="userIdentifier"
+            name="account">
+
+          <button
+            id="deleteAccountFormButton"
+            type="submit">アカウント削除</button>
+
+        </form>
+      </div>
+    </fieldset>
+
+  </div>
+</body>
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/accountManagement.js"></script>
+<script src="/.static/js/themes.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+
+</html>

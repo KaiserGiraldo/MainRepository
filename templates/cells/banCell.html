@@ -1,0 +1,52 @@
+<hr />
+<p>
+  ID: <span class="idLabel"></span>
+</p>
+<p class="asnPanel">
+  ASN: <span class="asnLabel"></span>
+</p>
+<p class="targetLabel"></p>
+<a class="postHistoryLink">[投稿履歴］</a>
+<a class="offenseRecordLink">[犯罪歴]</a>
+<a class="fileHistoryLink">[ファイル履歴]</a>
+<p id="reasonPanel">
+  理由：<span class="reasonLabel"></span>
+</p>
+<p class="boardPanel">
+  板：<span class="boardLabel"></span>
+</p>
+<p id="expirationPanel">
+  有効期限：<span class="expirationLabel"></span>
+</p>
+<p>
+  適用者：<span class="appliedByLabel"></span>
+</p>
+<p>
+  <span class="appealPanel">訴える：<span class="appealLabel"></span></span>
+</p>
+<form
+  class="denyForm"
+  action="/denyAppeal.js"
+  method="post"
+  enctype="multipart/form-data">
+  <input
+    type="hidden"
+    name="banId"
+    class="denyIdentifier">
+  <button
+    type="submit"
+    class="denyFormButton">訴えを否定する</button>
+</form>
+
+<form
+  action="/liftBan.js"
+  method="post"
+  enctype="multipart/form-data">
+  <button
+    type="submit"
+    class="liftFormButton">リフト</button>
+  <input
+    type="hidden"
+    class="liftIdentifier"
+    name="banId">
+</form>

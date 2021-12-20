@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+</head>
+<body>
+
+  
+
+  <nav id="dynamicHeader"></nav>
+
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
+
+  <div id="settingsWrapper">
+
+    <fieldset id="settingsFieldset">
+
+      <legend>新バナー</legend>
+
+      <form
+        action="/createBanners.js"
+        method="post"
+        enctype="multipart/form-data">
+
+        <input
+          type="hidden"
+          name="boardUri"
+          id="boardIdentifier">
+        
+        <label>
+          <input
+          type="file"
+          id="files"
+          multiple
+          name="files">
+        </label>
+        
+        <button
+          type="submit"
+          id="addFormButton">バナーの追加</button>
+
+        <p>
+          最大許容サイズ：<span id="maxSizeLabel"></span>
+        </p>
+        <p id="maxBannerDiv">
+          バナーの最大許容量：<span id="maxBannerLabel"></span>
+        </p>
+
+      </form>
+
+      <hr>
+
+      <div
+        id="bannersDiv"
+        class="banners"></div>
+
+    </fieldset>
+
+  </div>
+
+</body>
+
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/bannerManagement.js"></script>
+<script src="/.static/js/themes.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+
+</html>

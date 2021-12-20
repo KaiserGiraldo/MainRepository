@@ -1,0 +1,164 @@
+<tbody>
+
+  <tr id="divName">
+    <th>おなまえ</th>
+    <td><input
+        type="text"
+        class="postingInput"
+        id="fieldName"
+        name="name"></td>
+  </tr>
+
+  <tr>
+    <th>題　　名</th>
+    <td><input
+        type="text"
+        class="postingInput"
+        id="fieldSubject"
+        name="subject">
+      <input
+        name="boardUri"
+        id="boardIdentifier"
+        type="hidden"></td>
+  </tr>
+
+  <tr>
+    <th>コメント</th>
+    <td><textarea
+        rows="5"
+        cols="35"
+        class="postingInput"
+        id="fieldMessage"
+        name="message"></textarea>
+
+      <p class="small">
+        コメントの最大長：<span id="labelMessageLength"></span>
+      </p></td>
+  </tr>
+
+  <tr id="divUpload">
+    <th>ファイル</th>
+    <td>
+      <div
+        class="hidden"
+        id="dragAndDropDiv">
+        <div
+          class="dropzone"
+          id="dropzone">
+          ファイルをドラッグしてアップロードしたり 
+          <br>
+          ここをクリックして選択
+        </div>
+        <div id="selectedDiv"></div>
+      </div>
+
+      <div>
+        <input
+          type="file"
+          name="files"
+          id="inputFiles"
+          multiple
+          class="fileBrowser">
+      </div>
+      <input
+        type="checkbox"
+        name="spoiler"
+        class="postingCheckbox"
+        id="checkboxSpoiler"> <label for="checkboxSpoiler"></label>
+
+      <p class="small">
+        最大ファイルサイズ：<span id="labelMaxFileSize"></span>
+      </p>
+      <p class="small">
+        最大ファイル数：<span id="labelMaxFiles"></span>
+      </p>
+
+    </td>
+  </tr>
+
+  <tr id="captchaDiv">
+
+    <th>CAPTCHA</th>
+    <td><img
+      class="captchaImage"
+      src="/captcha.js" />
+
+      <div class="subCaptchaDiv">
+        <input
+          type="button"
+          value="リロード"
+          class="hidden reloadCaptchaButton">
+        <span class="captchaTimer"></span>
+        <br>
+
+        <input
+          name="captcha"
+          type="text"
+          class="captchaField postingInput"
+          id="fieldCaptcha"
+          placeholder="answer">
+
+        <a
+          href="/noCookieCaptcha.js"
+          class="small">クッキーはありませんか？</a>
+
+      </div></td>
+  </tr>
+
+  <tr
+    class="hidden small"
+    id="formMore">
+    <td>もっと</td>
+  </tr>
+
+</tbody>
+<tbody id="extra">
+
+  <tr>
+    <th>E-mail</th>
+    <td><input
+        type="text"
+        class="postingInput"
+        id="fieldEmail"
+        name="email"></td>
+  </tr>
+
+  <tr>
+    <th>パスワード</th>
+    <td><input
+        id="fieldPostingPassword"
+        name="password"
+        class="postingInput"
+        type="password">
+      <p class="small">（ファイルと投稿を削除するために使用されます）</p></td>
+  </tr>
+
+  <tr>
+    <th>その他</th>
+    <td>
+      <div id="flagsDiv">
+        <select
+          name="flag"
+          id="flagCombobox"></select>
+        <img class="flagPreview">
+      </div>
+      <div id="noFlagDiv">
+        <input
+          type="checkbox"
+          class="postingCheckbox postingInput"
+          id="checkboxNoFlag"
+          name="noFlag">
+        <label for="checkboxNoFlag"></label>
+      </div>
+      <div
+        class="hidden"
+        id="alwaysUseBypassDiv">
+        <input
+          type="checkbox"
+          class="postingCheckbox postingInput"
+          id="alwaysUseBypassCheckBox">
+        <label for="alwaysUseBypassCheckBox"></label>
+      </div>
+    </td>
+  </tr>
+</tbody>

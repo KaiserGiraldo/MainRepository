@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+</head>
+<body>
+
+  
+
+  <nav id="dynamicHeader"></nav>
+
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
+
+  <div id="settingsWrapper">
+
+    <fieldset id="settingsFieldset">
+
+      <legend>フィルタ</legend>
+
+      <p>
+        最大フィルター長：<span id="maxLengthLabel"></span>
+      </p>
+
+      <form
+        action="/createFilter.js"
+        method="post"
+        enctype="multipart/form-data">
+        <input
+          type="hidden"
+          name="boardUri"
+          id="boardIdentifier">
+        <label>
+          元の用語：
+          <input
+            type="text"
+            class="addFilterField"
+            name="originalTerm"
+            id="fieldOriginalTerm">
+        </label>
+        <label>
+          置き換え期間：
+          <input
+            type="text"
+            class="addFilterField"
+            name="replacementTerm"
+            id="fieldReplacementTerm">
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            class="addFilterField"
+            name="caseInsensitive"
+            id="checkboxCaseInsensitive">
+          交換期間：
+        </label>
+        <button
+          type="submit"
+          id="addFormButton">フィルタを追加する</button>
+
+      </form>
+      <hr />
+      <div id="divFilters"></div>
+    </fieldset>
+  </div>
+
+</body>
+
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/themes.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+<script src="/.static/js/filterManagement.js"></script>
+
+</html>

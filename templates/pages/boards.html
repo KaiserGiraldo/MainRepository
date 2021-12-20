@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/boards.css"
+  type="text/css"
+  rel="stylesheet" />
+</head>
+<body>
+
+  
+
+  <nav>
+    <span id="navLinkSpan"> <span>[</span> <a
+        href="/"
+        class="coloredIcon"
+        id="navLinkHome"></a> <span>/</span> <a
+        href="/boards.js"
+        class="coloredIcon"
+        id="navBoardList"></a> <span>/</span> <a
+        class="coloredIcon"
+        id="linkOverboard"></a> <span>/</span> <a id="linkSfwOver"></a> <span>/</span>
+      <a
+        href="/.static/pages/posting.html"
+        class="coloredIcon"
+        id="navPosting"></a> <span>]</span>
+    </span> <span id="navBoardsSpan"> </span> <span id="navOptionsSpan"> </span>
+  </nav>
+
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
+
+  <div id="boardsWrapper">
+
+    <div
+      id="divBoards"
+      class="wide">
+      <span id="divBoardsLegend"> <span id="legend"><span
+          id="labelPPH"
+          class="cellComponent">PPH</span><span
+          id="labelPosts"
+          class="cellComponent">投稿</span><span
+          id="labelUsers"
+          class="cellComponent">ユーザー</span></span></span>
+    </div>
+
+    <fieldset id="settingsFieldset">
+      <legend>検索</legend>
+      <form
+        action="/boards.js"
+        method="get">
+
+        <label>
+          <input
+            type="text"
+            name="boardUri"
+            placeholder="board">
+        </label>
+
+        <label>
+          <input
+            type="text"
+            name="tags"
+            placeholder="tags">
+        </label>
+
+        <label>
+          <select name="sorting">
+            <option value=''>最も人気のある</option>
+            <option value='1'>最下位</option>
+            <option value='2'>最も投稿の多いものから</option>
+            <option value='3'>投稿数の少ないものから</option>
+            <option value='4'>PPHの高いものから順に</option>
+            <option value='5'>PPHの低いものから順に</option>
+            <option value='6'>アルファベット順</option>
+            <option value='7'>アルファベットの逆順</option>
+          </select>
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="sfw">
+          卑猥な板ではない
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="unindexed">
+          インデックスなし板のみ
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="inactive">
+          放置板のみ
+        </label>
+
+        <input
+          type="submit"
+          value="検索">
+
+      </form>
+    </fieldset>
+
+
+    <div class="boardPages">
+      [
+      <div id="divPages"></div>
+      ]
+    </div>
+
+
+  </div>
+
+</body>
+
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/themes.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+
+</html>

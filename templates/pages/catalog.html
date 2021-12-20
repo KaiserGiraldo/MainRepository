@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/posting.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/catalog.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/thread.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/boardContent.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/watcher.css"
+  type="text/css"
+  rel="stylesheet" />
+<link
+  href="/.static/css/settingsMenu.css"
+  type="text/css"
+  rel="stylesheet" />
+</head>
+<body>
+
+  
+
+  <nav id="dynamicHeader"></nav>
+
+  <p id="catalogId">
+    <a
+      href="."
+      id="labelBoard"></a>
+    <span class="title">のカタログ</span>
+  </p>
+
+
+  <div id="postingForm">
+    <button
+      id="togglePosting"
+      class="hidden">投稿スレッド</button>
+    <fieldset id="newPostFieldset">
+      <legend>モード：スレッド</legend>
+
+      <form
+        action="/newThread.js"
+        enctype="multipart/form-data"
+        method="post">
+
+        <table id="postingTable">
+        </table>
+
+        <p class="small">
+          <a
+            href="rules.html"
+            class="rules">利用規約</a>
+          に従うことを忘れないでください。
+        </p>
+
+        <button
+          type="submit"
+          id="formButton">スレッドを立てる</button>
+
+      </form>
+
+    </fieldset>
+
+  </div>
+
+  <div
+    id="divTools"
+    class="hidden">
+
+    <span class="catalogLabel">検索 :</span>
+    <input
+      type="text"
+      id="catalogSearchField">
+
+
+    (
+    <button
+      id="catalogRefreshButton"
+      class="catalogLabel">更新</button>
+    <input
+      type="checkbox"
+      id="autoCatalogRefreshCheckBox">
+    <span
+      class="catalogLabel"
+      id="catalogRefreshLabel">自動</span>)
+
+  </div>
+
+  <div
+    id="divThreads"
+    class="catalogDiv"></div>
+
+</body>
+
+<script src="/.static/js/crypto.js"></script>
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/board.js"></script>
+<script src="/.static/js/postCommon.js"></script>
+<script src="/.static/js/captchaModal.js"></script>
+<script src="/.static/js/captchaUtils.js"></script>
+<script src="/.static/js/catalog.js"></script>
+<script src="/.static/js/themes.js"></script>
+<script src="/.static/js/draggable.js"></script>
+<script src="/.static/js/watcher.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+<script src="/.static/js/bypassUtils.js"></script>
+
+</html>

@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+
+</head>
+<body>
+
+  
+
+  <nav id="dynamicHeader"></nav>
+
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
+
+  <div id="settingsWrapper">
+
+    <fieldset id="settingsFieldset">
+
+      <legend id="boardLabel"></legend>
+
+      <p>
+        <a href="/account.js">アカウント</a>
+      </p>
+      <p>
+        <a id="linkSelf">板のフロントページ</a>
+      </p>
+
+      <div id="ownerControlDiv">
+
+        <hr />
+
+        <h3>ボランティア追加</h3>
+
+        <form
+          action="/setVolunteer.js"
+          method="post"
+          enctype="multipart/form-data">
+
+          <label>
+            ユーザーログイン：
+            <input
+              type="text"
+              name="login"
+              class="addVolunteerField"
+              id="addVolunteerFieldLogin">
+          </label>
+
+          <input
+            type="hidden"
+            name="add"
+            value=true>
+
+          <input
+            type="hidden"
+            name="boardUri"
+            id="addVolunteerBoardIdentifier">
+
+          <button
+            type="submit"
+            id="addVolunteerFormButton">ボランティア追加</button>
+
+        </form>
+
+        <hr />
+
+        <h3>所有権の移転</h3>
+
+        <form
+          action="/transferBoardOwnership.js"
+          method="post"
+          enctype="multipart/form-data">
+
+          <label>
+            ユーザーログイン：
+            <input
+              type="text"
+              name="login"
+              class="transferBoardField"
+              id="transferBoardFieldLogin">
+          </label>
+
+          <input
+            type="hidden"
+            name="boardUri"
+            id="transferBoardIdentifier">
+
+          <button
+            type="submit"
+            id="transferBoardFormButton">トランスファ板</button>
+
+        </form>
+
+        <hr />
+
+        <h3>板の削除</h3>
+
+        <form
+          method="post"
+          action="/deleteBoard.js"
+          enctype="multipart/form-data">
+
+          <label>
+            <input
+              type="checkbox"
+              class="deleteBoardField"
+              name="confirmDeletion"
+              id="confirmDelCheckbox">
+            はい、この板の削除を希望します
+          </label>
+
+          <input
+            id="deletionIdentifier"
+            name="boardUri"
+            type="hidden">
+
+          <button
+            type="submit"
+            id="deleteBoardFormButton">板の削除</button>
+
+        </form>
+
+        <hr />
+
+        <h3>カスタムCSS</h3>
+
+        <p>カスタムCSSを削除するため、ファイルなしでアップロードする</p>
+
+        <form
+          action="/setCustomCss.js"
+          method="post"
+          enctype="multipart/form-data">
+
+          <input
+            type="hidden"
+            name="boardUri"
+            id="customCssIdentifier">
+
+          <label>
+            <input
+              type="file"
+              id="files"
+              name="files">
+          </label>
+
+          <button
+            id="cssFormButton"
+            type="submit">CSSのアップロード</button>
+
+        </form>
+
+        <hr />
+
+        <div id="customJsForm">
+
+          <h3>カスタムJavaScript</h3>
+
+          <p>カスタムJavaScriptを削除するために、ファイルなしでアップロードする</p>
+
+          <form
+            action="/setCustomJs.js"
+            method="post"
+            enctype="multipart/form-data">
+
+            <input
+              type="hidden"
+              name="boardUri"
+              id="customJsIdentifier">
+
+            <label>
+              <input
+                type="file"
+                id="JsFiles"
+                name="files">
+            </label>
+
+            <button
+              id="jsFormButton"
+              type="submit">JSのアップロード</button>
+
+          </form>
+          <hr />
+        </div>
+
+        <h3>カスタムスポイラー</h3>
+
+        <p>カスタムスポイラーを削除するために、ファイルなしでアップロードする</p>
+
+        <div id="customSpoilerIndicator">
+          <p>この板用に保存されたカスタムスポイラーがあります</p>
+        </div>
+
+        <form
+          id="indicatorMarker"
+          action="/setCustomSpoiler.js"
+          method="post"
+          enctype="multipart/form-data">
+
+          <input
+            type="hidden"
+            name="boardUri"
+            id="customSpoilerIdentifier">
+
+          <label>
+            <input
+              type="file"
+              id="filesSpoiler"
+              name="files">
+          </label>
+
+          <button
+            id="spoilerFormButton"
+            type="submit">カスタムスポイラーをアップロードする</button>
+
+        </form>
+
+        <hr />
+
+        <h3>Volunteers</h3>
+
+        <div id="volunteersDiv"></div>
+
+        <hr>
+
+        <p>
+          <a id="bannerManagementLink">バナーの管理</a>
+        </p>
+        <p>
+          <a id="filterManagementLink">フィルターの管理</a>
+        </p>
+        <p>
+          <a id="ruleManagementLink">利用規約の管理</a>
+        </p>
+        <p>
+          <a id="flagManagementLink">フラッグの管理</a>
+        </p>
+
+        <hr />
+
+      </div>
+
+      <p>
+        <a id="linkごみ箱">
+          ごみ箱(<span id="trashBinLabel"></span>)
+        </a>
+      </p>
+      <p>
+        <a id="rangeBansLink">範囲禁止</a>
+      </p>
+      <p>
+        <a id="asnBansLink">ASN禁止</a>
+      </p>
+      <p>
+        <a id="hashBansLink">ハッシュ禁止</a>
+      </p>
+      <p>
+        <a id="bansLink">禁止</a>
+      </p>
+      <p>
+        <a id="closedReportsLink">クローズドレポート</a>
+      </p>
+      <p>
+        <a id="openReportsLink">
+          レポートを開く(<span id="openReportsLabel"></span>)
+        </a>
+      </p>
+      <p>
+        <a id="appealedBansLink">
+          上訴禁止(<span id="appealedBansLabel"></span>)
+        </a>
+      </p>
+
+      <form
+        action="/resetBoardLock.js"
+        method="post"
+        enctype="multipart/form-data"
+        id="resetBoardLockForm">
+
+        <hr />
+
+        <input
+          type="hidden"
+          name="boardUri"
+          id="resetLockIdentifier">
+        <button
+          type="submit"
+          id="resetLockButton">自動板ロックをリセットする</button>
+      </form>
+
+
+      <form
+        id="settingsForm"
+        action="/setBoardSettings.js"
+        method="post"
+        enctype="multipart/form-data">
+
+        <hr />
+
+        <h3>設定</h3>
+
+        <input
+          type="hidden"
+          id="boardSettingsIdentifier"
+          name="boardUri">
+
+        <label>
+          板名：
+          <input
+            id="boardNameField"
+            class="boardSettingsField"
+            type="text"
+            name="boardName">
+        </label>
+
+        <label>
+          板の説明：
+          <input
+            id="boardDescriptionField"
+            name="boardDescription"
+            class="wide boardSettingsField"></input>
+        </label>
+
+        <label>
+          匿名名：
+          <input
+            id="anonymousNameField"
+            type="text"
+            class="boardSettingsField"
+            name="anonymousName">
+        </label>
+
+        <label>
+          最大ファイル数<sup>2</sup>:
+          <input
+            id="maxFilesField"
+            type="number"
+            class="boardSettingsField"
+            name="maxFiles">
+        </label>
+
+        <label>
+          最大ファイルサイズ<sup>2</sup>:
+          <input
+            id="maxFileSizeField"
+            type="number"
+            class="boardSettingsField"
+            name="maxFileSizeMB">
+        </label>
+
+        <label>
+          非循環的なスレッドが作成されてから何日間、そのスレッドを立ち上げることができるかを指定します。
+          <input
+            id="maxBumpAgeField"
+            type="number"
+            class="boardSettingsField"
+            name="maxBumpAge">
+        </label>
+
+        <label>
+          返信制限（自動下限）<sup>2</sup>:
+          <input
+            id="autoSageLimitField"
+            type="number"
+            class="boardSettingsField"
+            name="autoSageLimit">
+        </label>
+
+        <label>
+          使用可能なファイル形式<sup>1,2</sup>:
+          <input
+            id="validMimesField"
+            type="text"
+            class="boardSettingsField"
+            name="acceptedMimes"
+            class="wide">
+        </label>
+
+        <label>
+          スレッド制限<sup>2</sup>:
+          <input
+            id="maxThreadsField"
+            type="number"
+            class="boardSettingsField"
+            name="maxThreadCount">
+        </label>
+
+        <label>
+          1時間ごとのスレッド制限（超過するとスレッド作成を一時的にロック）：
+          <input
+            id="hourlyThreadLimitField"
+            type="number"
+            class="boardSettingsField"
+            name="hourlyThreadLimit">
+        </label>
+
+        <label>
+          1時間以内にこれだけのスレッドが作成された場合、新しいスレッドのCAPTCHAを有効にする：
+          <input
+            id="autoCaptchaThresholdField"
+            type="number"
+            class="boardSettingsField"
+            name="autoCaptchaLimit">
+        </label>
+
+        <label>
+          1時間以内にこれだけの返信が投稿された場合、すべての投稿にキャプチャを有効にする：
+          <input
+            id="autoFullCaptchaThresholdField"
+            type="number"
+            class="boardSettingsField"
+            name="autoFullCaptchaLimit">
+        </label>
+
+        <label>
+          タグ（カンマで区切る）：
+          <input
+            type="text"
+            id="tagsField"
+            name="tags"
+            class="wide boardSettingsField">
+        </label>
+
+        <label>
+          掲示板のメッセージ(最大長：<span id="messageLengthLabel"></span>)：
+          <textarea
+            name="boardMessage"
+            id="boardMessageField"
+            class="wide"></textarea>
+        </label>
+
+        <label>
+          ロケーション旗：
+          <select
+            id="locationComboBox"
+            name="locationFlagMode"></select>
+        </label>
+
+        <label>
+          CAPTCHAモード：
+          <select
+            id="captchaModeComboBox"
+            name="captchaMode"></select>
+        </label>
+
+        <label>
+          優先言語：
+          <select
+            id="languageCombobox"
+            name="preferredLanguage"></select>
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="disableIds"
+            class="boardSettingsField"
+            id="disableIdsCheckbox">
+          スレッド単位のIDを無効にする
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            class="boardSettingsField"
+            name="requireThreadFile"
+            id="requireFileCheckbox">
+          新規スレッドには最低1ファイル必要
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="textBoard"
+            class="boardSettingsField"
+            id="textBoardCheckbox">
+          総合掲示板
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="blockDeletion"
+            class="boardSettingsField"
+            id="blockDeletionCheckbox">
+          ユーザーによる投稿の削除をブロックする
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            class="boardSettingsField"
+            name="allowCode"
+            id="allowCodeCheckbox">
+          コードタグの使用を許可する
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            class="boardSettingsField"
+            name="unindex"
+            id="unindexCheckbox">
+          トップ板や板リストでインデックスを作らない。
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            class="boardSettingsField"
+            name="forceAnonymity"
+            id="forceAnonymityCheckbox">
+          強制匿名化
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name=early404
+            class="boardSettingsField"
+            id="early404Checkbox">
+          初期404：5回以上返信がないスレッドは 上位1/3のスレッドから外れた後、削除されます。
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            class="boardSettingsField"
+            name="uniqueFiles"
+            id="uniqueFilesCheckbox">
+          独自ファイル
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            class="boardSettingsField"
+            name="uniquePosts"
+            id="uniquePostsCheckbox">
+          ユニークな投稿
+        </label>
+
+        <button
+          type="submit"
+          id="saveSettingsFormButton">保存 </button>
+
+        <p>1：カンマで要素を区切る</p>
+        <p>2：値がグローバル同等品より大きいか、グローバル同等品に存在しない場合、非拘束板設定が有効でない限り無視されます。</p>
+
+      </form>
+
+    </fieldset>
+
+  </div>
+
+</body>
+
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/boardManagement.js"></script>
+<script src="/.static/js/bans.js"></script>
+<script src="/.static/js/themes.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+
+</html>

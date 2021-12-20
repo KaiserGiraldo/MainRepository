@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+</head>
+<body>
+
+  
+
+  <nav id="dynamicHeader"></nav>
+
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
+
+  <div id="settingsWrapper">
+
+    <fieldset id="settingsFieldset">
+
+      <legend>Bypass</legend>
+
+      <h3>Warning: Block bypasses require cookies to work</h3>
+
+      <div id="indicatorValidBypass">
+        有効なブロックバイパスがあります。
+        <div id="indicatorNotValidated">
+          It still needs validation.
+
+          <form
+            action="/validateBypass.js"
+            enctype="multipart/form-data"
+            method="post">
+
+            <div id="noJs">
+              <span><a
+                  href="https://gitgud.io/LynxChan/PoWSolver">PoW Solver</a>をダウンロードし、次の文字列からコードを取得する方法について書かれている説明書を読んでください：
+              </span>
+
+              <p id="labelBypass"></p>
+              <span>検証コード：</span>
+              <input
+                name="code"
+                type="text">
+            </div>
+            <button id="validationButton">検証</button>
+
+          </form>
+
+
+        </div>
+      </div>
+
+      <form
+        id="renewForm"
+        action="/renewBypass.js"
+        enctype="multipart/form-data"
+        method="post">
+        <hr />
+        <h3>バイパスを更新</h3>
+
+        <div class="captchaDiv">
+
+          <img
+            class="captchaImage"
+            src="/captcha.js">
+          <br>
+          <input
+            type="button"
+            class="hidden reloadCaptchaButton"
+            value="リロード">
+          <span class="captchaTimer"></span>
+          <br>
+          <input
+            name="captcha"
+            type="text"
+            class="bypassField"
+            id="fieldCaptcha"
+            placeholder="Answer">
+          <a
+            href="/noCookieCaptcha.js"
+            class="small">クッキーはありませんか？</a>
+          <br>
+          <button
+            type="submit"
+            id="bypassFormButton">ブロックバイパスを更新</button>
+        </div>
+      </form>
+    </fieldset>
+  </div>
+
+</body>
+
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/bypass.js"></script>
+<script src="/.static/js/captchaUtils.js"></script>
+<script src="/.static/js/themes.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+<script src="/.static/js/bypassUtils.js"></script>
+
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  href="/.static/css/global.css"
+  type="text/css"
+  rel="stylesheet" />
+</head>
+<body>
+
+  
+
+  <nav id="dynamicHeader"></nav>
+
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
+
+  <div id="settingsWrapper">
+
+    <fieldset id="settingsFieldset">
+
+      <legend>アカウント</legend>
+      <h3>ログイン</h3>
+
+      <form
+        action="/login.js"
+        enctype="multipart/form-data"
+        method="post">
+
+        <label>
+          <input
+            type="text"
+            name="login"
+            class="loginField"
+            id="loginFieldLogin"
+            placeholder="ログイン">
+        </label>
+        <label>
+          <input
+            type="password"
+            class="loginField"
+            id="loginFieldPassword"
+            name="password"
+            placeholder="パスワード">
+        </label>
+
+        <div id="divRemember">
+          <input
+            type="checkbox"
+            name="remember"
+            class="loginField"
+            id="checkboxRemember">
+          私を忘れないで
+        </div>
+
+        <button
+          type="submit"
+          id="loginFormButton">ログイン</button>
+
+      </form>
+
+      <hr />
+
+      <div id="divCreation">
+        <h3>登録</h3>
+        <form
+          action="/registerAccount.js"
+          enctype="multipart/form-data"
+          method="post">
+
+          <label>
+            <input
+              type="text"
+              name="login"
+              class="registerField"
+              id="registerFieldLogin"
+              placeholder="ログイン">
+          </label>
+          <label>
+            <input
+              type="password"
+              class="registerField"
+              id="registerFieldPassword"
+              name="password"
+              placeholder="パスワード">
+          </label>
+          <label>
+            <input
+              type="email"
+              class="registerField"
+              id="registerFieldEmail"
+              name="email"
+              placeholder="E-mail">
+          </label>
+
+          <div class="captchaDiv">
+
+            <img
+              class="captchaImage"
+              src="/captcha.js">
+
+            <br>
+            <input
+              type="button"
+              class="hidden reloadCaptchaButton"
+              value="リロード">
+            <span class="captchaTimer"></span>
+
+            <br>
+
+            <input
+              name="captcha"
+              type="text"
+              class="captchaField registerField"
+              id="fieldCaptcha"
+              placeholder="答え">
+
+            <a
+              class="small"
+              href="/noCookieCaptcha.js">クッキーはありませんか？</a>
+          </div>
+
+          <button
+            type="submit"
+            id="registerFormButton">登録</button>
+
+        </form>
+        <hr />
+
+      </div>
+
+      <div id="divRecover">
+        <h3>アカウントの復旧</h3>
+        <form
+          action="/requestAccountRecovery.js"
+          enctype="multipart/form-data"
+          method="post">
+          <label>
+            <input
+              type="text"
+              name="login"
+              class="recoverField"
+              id="recoverFieldLogin"
+              placeholder="ログイン">
+          </label>
+
+          <div class="captchaDiv">
+
+            <img
+              class="captchaImage"
+              src="/captcha.js">
+
+            <br>
+            <input
+              type="button"
+              class="hidden reloadCaptchaButton"
+              value="リロード">
+            <span class="captchaTimer"></span>
+
+            <br>
+
+            <input
+              name="captcha"
+              type="text"
+              class="captchaField recoverField"
+              id="fieldCaptchaRecover"
+              placeholder="答え">
+
+            <a
+              class="small"
+              href="/noCookieCaptcha.js">クッキーはありませんか？</a>
+          </div>
+
+          <button
+            type="submit"
+            id="recoverFormButton">リコール回収</button>
+
+        </form>
+
+      </div>
+
+    </fieldset>
+
+  </div>
+
+</body>
+
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/login.js"></script>
+<script src="/.static/js/captchaUtils.js"></script>
+<script src="/.static/js/themes.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+
+</html>

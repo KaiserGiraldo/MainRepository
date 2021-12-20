@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="/.static/css/global.css">
+</head>
+<body>
+
+  
+
+  <nav id="dynamicHeader"></nav>
+
+  <header>
+    <img
+      src="/.static/logo.png"
+      class="logoImg"
+      alt="logo" />
+  </header>
+
+  <div id="settingsWrapper">
+
+    <fieldset id="settingsFieldset">
+
+      <legend>メディアマネジメント</legend>
+
+      <form
+        action="/mediaManagement.js"
+        method="GET">
+        検索:
+        <input
+          name="filter"
+          type="text">
+
+        <label>
+          <input
+            type="checkbox"
+            id="orphanedCheckbox"
+            name="orphaned">
+          孤児となったファイルのみ表示する
+        </label>
+
+        <input
+          type="hidden"
+          name="boardUri"
+          id="boardUriIdentifier">
+        <input
+          type="hidden"
+          name="threadId"
+          id="threadIdIdentifier">
+        <input
+          type="hidden"
+          name="postId"
+          id="postIdIdentifier">
+        <input
+          type="hidden"
+          name="banId"
+          id="banIdentifier">
+
+        <button type="submit">フィルター</button>
+      </form>
+
+      <hr>
+
+      <button
+        class="hidden"
+        id="selectAllButton">すべて選択</button>
+
+      <form
+        action="/deleteMedia.js"
+        method="POST"
+        enctype="multipart/form-data">
+
+        <label>
+          <span>大量削除：</span>
+          <textarea
+            name="text"
+            id="massTextField"></textarea>
+        </label>
+
+        <div id="banPanel">
+          <label>
+            <span>禁止理由：</span>
+            <input
+              type="text"
+              name="reason"
+              id="reasonField">
+          </label>
+          <label>
+            <input
+              name="ban"
+              id="banCheckbox"
+              type="checkbox">
+            <span>削除されたファイルを禁止する</span>
+          </label>
+        </div>
+
+        <button
+          type="submit"
+          id="deleteFormButton">選択したメディアを削除する</button>
+
+        <div id="filesDiv"></div>
+      </form>
+      <hr>
+      <div id="pagesDiv"></div>
+
+    </fieldset>
+
+  </div>
+
+</body>
+<script src="/.static/js/api.js"></script>
+<script src="/.static/js/mediaManagement.js"></script>
+<script src="/.static/js/themes.js"></script>
+<script src="/.static/js/favouriteBoards.js"></script>
+
+</html>

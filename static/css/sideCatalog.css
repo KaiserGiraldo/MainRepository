@@ -1,0 +1,63 @@
+#sideCatalogDiv {
+  position: fixed;
+  overflow-y: auto;
+  left: 80%;
+  top: 22px;
+  height: calc(100vh - 22px);
+  width: 20%;
+  overscroll-behavior: contain;
+}
+
+.mainPanelWithSideCatalog {
+  width: 80%;
+}
+
+#navSideCatalog:before {
+  content: "\e088";
+}
+
+#sideCatalogBody hr {
+  clear: both;
+}
+
+header {
+  margin-top: 36px;
+}
+
+#closeSideCatalogButton {
+  display: table-cell;
+  text-align: right;
+}
+
+#sideCatalogHeader {
+  display: table;
+  width: 100%;
+}
+
+#closeSideCatalogButton, #sideCatalogBody {
+  padding-right: 10px;
+}
+
+.sideCatalogCell, .sideCatalogMarkedCell {
+  display: block;
+  cursor: pointer;
+  padding: 0.5em;
+  font-size: 75%;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+#sideCatalogBody img {
+  float: left;
+  margin-right: 10px;
+  max-width: 125px;
+  max-height: 125px;
+}
+
+.sideCatalogCellText {
+  vertical-align: top;
+}
+
+.sideCatalogCellText span {
+  display: block;
+}
