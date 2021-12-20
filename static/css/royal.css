@@ -1,0 +1,78 @@
+/* Royal Theme */
+/* Based on Yotsuba B. Credits to 8chan.moe and Badchan.xyz */
+
+@import "./syntax/atelier-sulphurpool-dark.css";
+:root {
+  --background-color: #2B181E;
+  --background-gradient: #2B181E;
+  --text-color: #c5b184;
+  --contrast-color: #3C212A;
+  --menu-color: #472732;
+  --background-highlight-color: #3C212A;
+  --horizon-sep-color: #3C212A;
+
+  --marked-color: #472732;
+  --marked-border-color: #472732;
+
+  --board-title-color: #bfa977;
+
+  --link-color: #f9c440;
+
+  --navbar-text-color: #462F2C;
+  --subject-color: #fff394;
+  --role-color: #a56de2;
+
+  --thread-navbar-background: #A4815E;
+  --thread-navbar-color: #171717;
+
+ --index-text-color: var(--board-title-color);
+
+ --logo-image: url("/.static/logo/royal.png");
+}
+
+.diceRoll {
+  color: #fff394;
+}
+
+.modalTableBody input[type="text"], .modalTableBody select,
+#themeSelector,
+#modalAnswer,
+#cssInput, #jsInput,
+#postingForm input[type="text"], #postingForm textarea,
+#quick-reply input[type="text"], #quick-reply textarea {
+  color: var(--text-color);
+  background-color: #171717;
+}
+
+#themeSelector {
+  border-color: var(--navbar-text-color);
+}
+
+.boardHeader p {
+  font-weight: bold;
+}
+
+.quoteLink {
+  color: var(--link-color);
+}
+
+.noEmailName,
+.noEmailName:hover {
+  color: #f9c440;
+}
+
+.greenText {
+  color: #68b723;
+}
+
+.pinkText {
+  color: #de3e80;
+}
+
+.redText {
+  color: #c6262e;
+}
+
+.innerUtility.top a {
+  color: var(--thread-navbar-color);
+}

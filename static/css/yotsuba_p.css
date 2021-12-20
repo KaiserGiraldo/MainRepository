@@ -1,0 +1,70 @@
+/* Yotsuba P Theme */
+/* Formerly know as Shota64, based on Yotsuba Blue. Credits to 8chan.moe and 64ch.me */
+
+
+@import "./syntax/ascetic.css";
+:root {
+  --background-color: #AAA2D8;
+  --background-gradient: #e4e4f9;
+  --contrast-color: #c9c4ea;
+  --menu-color: #e4e4f9;
+  --background-highlight-color: #a590ce;
+  --horizon-sep-color: #a590ce;
+
+  --marked-color: #b8b1e3;
+  --marked-border-color: #b8b1e3;
+  --marked-text-color: var(--text-color);
+
+  --board-title-color: #452981;
+  --index-text-color: #000333;
+
+  --navbar-text-color: #34345C;
+  --subject-color: #090910;
+  --role-color: #a10705;
+
+  --thread-navbar-background: #7239b3;
+  --thread-navbar-color: aliceblue;
+
+  --logo-image: url("/.static/logo/yotsuba_p.png");
+}
+
+#bannerImage {
+    max-width: 100%;
+    border-radius: 8px;
+    border-style: double;
+}
+
+/* Border around images. Inconsistent with other Yotsuba themes. Accidental carryover from Royal?
+.uploadCell img:not(.imgExpanded) {
+    max-width: 225px;
+    max-height: 225px;
+    object-fit: contain;
+    border-radius: 8px;
+    border-style: double;
+    opacity: 0.8;
+}*/
+
+.boardHeader p {
+  font-weight: bold;
+}
+
+.quoteLink {
+  color: #a10705;
+}
+
+#panelMessage {
+  color: #a10705;
+}
+
+.noEmailName,
+.noEmailName:hover {
+  color: #452981;
+}
+
+.greenText {
+  color: #206b00;
+}
+
+.pinkText {
+  color: #a10705;
+}

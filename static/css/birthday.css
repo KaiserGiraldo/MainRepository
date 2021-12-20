@@ -1,0 +1,109 @@
+:root {
+    --background-color: #9DD4CD;
+    --background-gradient: #F6F3E0;
+    --text-color: black;
+    --contrast-color: #9DD4CD;
+    --menu-color: #EDE7C1;
+    --background-highlight-color: #6BABA3;
+    --horizon-sep-color: #b7c5d9;
+    --border-color: black;
+
+    --marked-color: #b8b1e3;
+    --marked-border-color: #b8b1e3;
+    --marked-text-color: black;
+
+    --board-title-color: #452981;
+    --index-text-color: #000333;
+
+    --link-color: #34345C;
+    --link-hover-color: #d00;
+
+    --navbar-text-color: #34345C;
+    --table-every-other-color: #e0e5f6;
+    /*--button-color: #eceff6;*/
+    --sfw-indicator-color: navy;
+    --subject-color: #090910;
+    --role-color: #a10705;
+
+    --thread-navbar-background: #557975;
+    --thread-navbar-color: aliceblue;
+
+	--logo-image: url("/.static/logo/logo_classic.png");
+}
+
+body {
+	background-image: url("https://modchan.org/.media/7d36b71559716ba2462f0318835133ae3e6ab6b8c457784132536d4a56be869a.png");
+	background-repeat: repeat;
+	background-blend-mode: overlay;
+}
+
+#bannerImage {
+    border-radius: 8px;
+    border-style: dotted;
+}
+
+.boardHeader p, #overboardId {
+    font-weight: bold;
+}
+
+.uploadCell img:not(.imgExpanded) {
+    border-radius: 8px;
+    border-style: dashed;
+}
+
+.innerOP:before {
+  content: '';
+  background: url("../bdayhat.png") no-repeat;
+  position: absolute;
+  left: 0;
+  width: 74px;
+  height: 150px;
+  z-index: 10;
+  margin-top: -140px;
+  pointer-events: none;
+}
+
+.postCell:target .innerPost, .markedPost, .sideCatalogMarkedCell {
+    border: dotted;
+    border-radius: 8px;
+}
+
+#panelMessage {
+    color: #a10705;
+}
+
+.noEmailName,
+.noEmailName:hover {
+    color: #452981;
+}
+
+.greenText {
+    color: #206b00;
+}
+
+.pinkText {
+    color: #a10705;
+}
+
+.redText {
+    color: #c6262e;
+}
+
+.diceRoll {
+    color: #fff394;
+}
+
+/* Put 0 to get rid of the round rects */
+input, select, textarea, 
+input[type=button], input[type=submit], button,
+.dropzone, 
+.selectedCell, 
+.catalogCell, 
+.topBoards a, 
+#divLatestImages img,
+#divLatestPosts .latestPostCell, 
+#postingForm th, 
+.modalTableBody th,
+#newPostFieldset legend {
+    border-radius: 8px;
+}

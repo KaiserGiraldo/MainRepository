@@ -1,0 +1,595 @@
+/* windows 95 theme */
+@import "./syntax/vs.css";
+:root {
+    --background-color: #c0c0c0;
+	--background-gradient: #008080;
+	--text-color: black;
+	--contrast-color: var(--background-color); /*#d6daf0;*/
+	--menu-color: #eef2ff;
+	--background-highlight-color:	var(--background-color);
+	--horizon-sep-color: 	rgba(154,163,159,0.2);
+
+	--marked-color:	#bbe6c2;
+	--marked-border-color: rgba(154,163,159,0.8);
+
+	--link-color: #222;
+	--link-hover-color: #555;
+
+	--board-title-color: #c0c0c0;
+	--index-text-color: var(--text-color);
+
+	--navbar-text-color:	 rgba(51, 51, 51, 0.5);
+	--table-every-other-color:	var(--background-color);
+
+	--sfw-indicator-color:	darkblue;
+	--subject-color: blue;
+
+	--windows-border:	2px outset lightgray;
+    --menu-text-color: 	#ddd;
+
+    --logo-image: url("/.static/logo/logo_gray_dark.png");
+}
+
+body {
+	background-image: none;
+}
+
+footer {
+	padding-bottom:	4em;
+}
+
+nav {
+	border: var(--windows-border);
+	top:	unset!important;
+	bottom:	-3px;
+	height: 40px;
+}
+
+hr {
+	border-top: 2px ridge #c0c0c0;
+}
+
+/*remove separating [ / ] */
+nav > span span, .innerUtility > span,
+#dynamicLinks > span {
+	display: none;
+}
+
+/*remove emoji icons, add windows ones*/
+nav .coloredIcon:before {
+	display: none;
+}
+
+nav select {
+	vertical-align: top;
+	height: 28px;
+	margin: 2px;
+}
+
+nav a:after {
+	font-size: 120%;
+}
+
+nav > :last-child {
+	margin-top: 0;
+}
+
+#catalogRefreshButton, #refreshButton, nav a {
+	color: var(--text-color);
+	border: var(--windows-border);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-origin: content-box;
+	background-color: var(--background-color);
+	display: inline-block;
+	
+	width: 28px;
+	height: 28px;
+	padding: 2px;
+	font-weight: inherit;
+	line-height: 1.75em;
+	vertical-align: middle;
+}
+
+#navTopBoardsSpan > a {
+  width: unset;
+}
+
+#navLinkHome {
+	background-image: url("/.static/Win32/start.png");
+	background-origin: content-box;
+	width: 80px!important;
+	text-align: right;
+}
+
+#navLinkHome:after {
+	content: "Start";
+	display: inherit !important;
+	font-size: large;
+	vertical-align: calc(100% - 7px);
+	padding-top: 5px;
+	padding-right: 5px;
+}
+
+#galleryLink {
+	width: unset;
+}
+
+#galleryLink:after {
+	content: "Gallery";
+	display: inherit !important;
+	font-size: large;
+	vertical-align: calc(100% - 7px);
+	padding-top: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+#navBoardList {
+	background-image: url("/.static/Win32/boards.png");
+}
+
+#linkOverboard {
+	background-image: url("/.static/Win32/overboard.png");
+}
+
+#linkSfwOver {
+	background-image: url("/.static/Win32/overboard_sfw.png");
+}
+
+#navPosting {
+	background-image: url("/.static/Win32/help.png");
+}
+
+#watcherButton {
+	background-image: url("/.static/Win32/watched_threads.png");
+}
+
+#settingsButton {
+	background-image: url("/.static/Win32/settings.png");
+}
+
+#navMod {
+	background-image: url("/.static/Win32/user_account.png");
+}
+
+#linkBack {
+	background-image: url("/.static/Win32/index.png");
+}
+
+#linkTop {
+	background-image: url("/.static/Win32/arrow_up.png");
+}
+
+#linkBottom {
+	background-image: url("/.static/Win32/arrow_down.png");
+}
+
+#navCatalog {
+	background-image: url("/.static/Win32/catalog.png");
+}
+
+#navSideCatalog {
+	background-image: url("/.static/Win32/watched_threads.png");
+}
+
+#linkLogs {
+	background-image: url("/.static/Win32/logs.png");
+}
+
+#linkRss {
+	background-image: url("/.static/Win32/RSS.png");
+}
+
+.reportFieldset {
+	background-color: var(--background-color);
+}
+
+fieldset legend {
+	border: var(--windows-border);
+	background-color: var(--sfw-indicator-color);
+	color: var(--menu-text-color);
+	margin-left: -18px;
+}
+
+#newPostFieldset legend {
+	width: calc(100% - 8px);
+	text-align: left;
+	margin-top: -2px;
+	margin-left: -2px;
+}
+
+.reportFieldset legend {
+	margin-left: -13px;
+	border: var(--windows-border);
+}
+
+#postingForm table {
+	border: none;
+	margin-top: -1px;
+	margin-right: 1px;
+	padding: 2px 0;
+}
+
+input[type=file],
+input[type=number],
+input[type=password],
+input[type=range],
+input[type=text],
+select,
+textarea {
+	border:	2px inset var(--background-color);
+}
+
+#postingForm form {
+	background: var(--background-color);
+	border: var(--windows-border);
+	color: var(--marked-text-color);
+}
+
+.innerUtility > a:before,
+.innerUtility > a:after {
+	content: "";
+}
+
+.innerUtility,
+.innerUtility.bottom {
+	padding: 2px 0;
+	margin-bottom: 4px;
+}
+
+.innerUtility.top {
+  background-color: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
+.innerUtility.top a {
+  color: inherit;
+}
+
+.innerUtility hr {
+	display: none
+}
+
+.catalogCell {
+	background: var(--background-color);
+	border: var(--windows-border);
+}
+
+nav a,
+#divTools a,
+.innerUtility a {
+	line-height: 1.75em;
+	margin: 2px;
+	padding: 2px;
+}
+
+#divTools a,
+.innerUtility a,
+input[type=submit],
+input[type=button],
+label[for=file],
+button,
+details summary,
+.dropzone {
+	color: var(--text-color);
+	background: var(--background-color);
+	border: var(--windows-border);
+	font-weight: inherit;
+}
+
+details summary {
+	padding: 0 4px;
+	width: fit-content;
+}
+
+.handle {
+	margin-left: -4px;
+	margin-top: -5px;
+	padding: 2px;
+	width: calc(100% + 4px);
+}
+
+.handle, #quick-reply th {
+	text-align: left;
+	font-weight: bold;
+	color: var(--menu-text-color);
+	background: var(--sfw-indicator-color);
+    border: 0;
+}
+
+.handle .close-btn {
+	margin-right: -4px;
+	padding-top: 0;
+}
+
+#quick-reply .close-btn {
+	margin-right: -2px;
+	padding-top: 3px;
+}
+
+.close-btn:before {
+	border: var(--windows-border);
+	background: var(--background-color);
+	font-weight: lighter;
+	color: black;
+	font-size: 75%;
+	padding: 2px;
+	vertical-align: middle;
+}
+
+.floatingMenu,
+.modalDecorationPanel {
+    background: var(--background-color);
+    border: var(--windows-border);
+    color: #333;
+}
+
+#quick-reply, #quick-reply table {
+	padding: 0;
+}
+
+.floatingMenu hr {
+    color: #b86;
+}
+
+#postingForm th,
+.modalTableBody th,
+#quick-reply th {
+    border: 0;
+}
+
+.selectedCell {
+	border: var(--windows-border);
+    background-color: rgba(255,255,255,0.5);
+}
+
+.opCell .innerOP, #bannerImage {
+	background:	var(--background-color);
+	border: var(--windows-border);
+}
+
+.opCell:target .innerOP {
+	border: var(--windows-border);
+}
+
+.markedPost.innerOP {
+    display: inherit;
+    padding: 0;
+}
+
+#postingForm th {
+	padding-right: 2em;
+}
+
+#divTools {
+	background:	var(--background-color);
+	border: var(--windows-border);
+	padding: 2px;
+	margin: 0.75em;
+}
+
+#divTools > div:last-child {
+	margin-top: 6px;
+}
+
+#navLinkSpan {
+	float: left;
+}
+
+#navTopBoardsSpan {
+	width: calc(100% - 850px);
+}
+
+#dynamicAnnouncement table {
+	background:	var(--background-color);
+}
+
+th a {
+	color: var(--menu-text-color);
+}
+
+.labelSubject,
+.noEmailName,
+.noEmailName:hover,
+.opHead, .postInfo,
+.uploadDetails, .opUploadPanel {
+	font-weight: bold;
+	color: var(--menu-text-color);
+	background: var(--sfw-indicator-color);/*!important;*/
+}
+
+.opHead, .postInfo
+#divThreads .uploadDetails,
+#divPosts .uploadDetails, .opUploadPanel {
+	display: flex;
+}
+
+.postCell .innerPost,
+.opCell .innerOP {
+	border: var(--windows-border);
+}
+
+.panelUploads:not(.opUploadPanel) {
+	margin-top: -3px;
+}
+
+.innerPost .uploadCell:only-child, .innerPost .panelUploads summary {
+	width: 100%;
+}
+
+.opHead > * {
+	padding-right: 3px;
+}
+
+.uploadCell {
+	margin: 3px 0;
+}
+
+.uploadCell img {
+	border: var(--windows-border);
+    margin-left: -2px;
+    border-top: none;
+}
+
+.uploadCell details summary {
+	border: none;
+	padding: 0;
+}
+
+.uploadCell a,
+.uploadCell .coloredIcon,
+.opHead a,
+.opHead .coloredIcon,
+.postInfo a,
+.postInfo .coloredIcon {
+    color: var(--menu-text-color);
+}
+
+.uploadDetails, .opHead, .postInfo {
+	margin: -2px 0px 0px;
+	padding: 3px 5px 3px 3px;
+}
+
+.opHead {
+	margin-top: 0;
+}
+
+.imgFlag {
+    image-rendering: pixelated;
+}
+
+.innerPost {
+	padding: 2px 2px 0 0;
+}
+
+.greenText {
+	color: green;
+}
+
+.labelOmission,
+.contentOmissionIndicator {
+	font-weight: bold;
+	margin: 1em;
+}
+
+.sideCatalogCell,
+.sideCatalogMarkedCell,
+.boardPages,
+.containPages {
+    background: var(--background-color);
+	border: var(--windows-border);
+}
+
+.panelBacklinks a {
+	color: #AAA;
+}
+
+.altBacklinks .panelBacklinks a, .quoteLink,
+.divMessage a {
+    color: blue;
+}
+
+.quoteTooltip .title {
+	margin: 0;
+	margin-right: 1px;
+}
+
+.quoteTooltip .innerPost {
+    border: var(--windows-border);
+	padding: 0;
+}
+
+.divRefresh {
+	margin-bottom: 8px;
+}
+
+.divRefresh label {
+	border: var(--windows-border);
+	background-color: var(--background-color);
+	height: 28px;
+	width: 12em;
+	padding: 0 4px;
+	font-weight: inherit;
+	line-height: 2em;
+	vertical-align: middle;
+}
+
+#catalogRefreshButton,
+#refreshButton {
+	background-image: url("/.static/Win32/refresh.png");
+	font-size: 0;
+}
+
+/* front page */
+h2 {
+	background: var(--background-color);
+}
+
+.topBoards a {
+	color: var(--text-color);
+}
+
+.titleFieldset {
+	background: var(--background-highlight-color);
+	border: var(--windows-border);
+}
+
+.titleFieldset legend {
+	margin-left: -18px;
+}
+
+.titleFieldset button,
+.titleFieldset .hidden.reloadCaptchaButton,
+.titleFieldset input[type="submit"] {
+    /*border: 1px solid #333;*/
+	border: var(--windows-border);
+    background: rgba(255,255,255,0.9);
+    color: #333;
+}
+
+#divBoardsLegend {
+	border: none;
+}
+
+#divBoardsLegend > span {
+	padding-right: 2px;
+}
+
+#divBoards .boardsCell {
+	padding: 5px;
+}
+
+#divBoards .boardsCell hr {
+	display: none;
+}
+
+#divBoards .boardsCell:nth-child(2n),
+.titleFieldset #divThreads div:nth-child(2n) {
+	background-color: var(--background-color);
+	border: var(--windows-border);
+}
+
+#divLatestImages img,
+#divLatestPosts .latestPostCell{
+	background: var(--background-color);
+    border: var(--windows-border);
+}
+
+#dynamicLinks a {
+	background: var(--background-color);
+    border: var(--windows-border);
+	font-size: 100%;
+	padding: 2px;
+}
+/* end front page */
+
+@media only screen and (max-width: 812px) {
+	nav {
+		margin-top: -15px;
+	}
+  #navLinkHome {
+    width: 28px!important;
+  }
+}

@@ -1,0 +1,33 @@
+/* Yotsuba theme */
+@import "./syntax/nnfx.css";
+:root {
+    --background-color: #84CA50;
+    --background-gradient: #a991d9;
+    --contrast-color: #8872e4;
+    --background-highlight-color: #84CA50;
+    --menu-color: #b19cd9;
+    --marked-color: #F5C396;
+    --quote-link: #FE5E41;
+
+    --logo-image: url("/.static/logo/logo_ribbon.png");
+}
+
+body {
+  font-family: verdana,arial,sans-serif;
+}
+
+.linkName {
+  color: #84ca50 !important;
+}
+
+.greenText {
+  color: #9bd41b;
+}
+
+.quoteLink {
+  font-weight: bold;
+}
+
+.innerUtility.top {
+  background-color: var(--quote-link);
+}

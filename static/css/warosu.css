@@ -1,0 +1,33 @@
+/* Warosu theme */
+@import "./syntax/gradient-light.css";
+:root {
+	--background-color: #cfecd1;
+	--background-gradient: #eef8f0;
+	--text-color: #333;
+	--contrast-color: #d6f0da;
+	--menu-color: #cfecd1;
+	--background-highlight-color: #bbe6c2;
+	--horizon-sep-color: rgba(0,0,0,0.11);
+	--border-color: #333;
+	--marked-color: #bbe6c2;
+	--marked-border-color: rgba(154,163,159,0.8);
+
+	--board-title-color: maroon;
+    /*--board-shadow-color: rgba(100,0,0,0.6);*/
+	--index-text-color: var(--text-color);
+
+	--link-color: #358;
+	--link-hover-color: #d00;
+
+	--navbar-text-color: rgba(51, 51, 51, 0.5);
+	--table-every-other-color: #d6f0da;
+	/*--button-color: rgba(255,255,255,0.9);*/
+	--sfw-indicator-color: navy;
+	--subject-color: #cc1105;
+
+    --logo-image: url("/.static/logo/logo_green_light.png");
+}
+
+.pinkText {
+	color: #f04f3d;
+}

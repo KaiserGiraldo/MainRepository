@@ -1,0 +1,65 @@
+/* Miku Theme */
+/* Based on Yotsuba B. Credits to 8chan.moe and prolikewoah.com */
+
+@import "./syntax/gruvbox-light.css";
+:root {
+  --background-color: #94D8DA;
+  --background-gradient: #D2FFEE;
+  --contrast-color: #B6DDDE;
+  --menu-color: #B3E3E4;
+  --background-highlight-color: #95D2D3;
+  --horizon-sep-color: #b7c5d9;
+  --border-color: #78998c;
+
+  --marked-color: #8FCBCE;
+  --marked-border-color: #ba9dbf;
+
+  --board-title-color: #800000;
+
+  --link-color: #004758;
+  --link-hover-color: #007367;
+
+  --thread-navbar-background: #007367;
+  --thread-navbar-color: aliceblue;
+  --role-color: #FF0000;
+
+  --logo-image: url("/.static/logo/miku.png");
+}
+
+.boardHeader p {
+  font-weight: bold;
+}
+
+.quoteLink {
+  color: #00637B;
+}
+
+#selectedTab {
+    text-shadow: 0px 0px 2px var(--link-color);
+}
+
+.pinkText {
+  color: #BC245D;
+  /*color: #ff28fb; Yotsuba B pinktext*/
+}
+
+#newPostFieldset {
+  border: 1px dashed var(--border-color);
+}
+
+/* Left at 5px to mimmick Miku theme */
+input, select, textarea, 
+input[type=button], input[type=submit], button,
+.dropzone, 
+.selectedCell, 
+.catalogCell, 
+.topBoards a, 
+#divLatestImages img,
+#divLatestPosts .latestPostCell, 
+.markedPost, 
+.sideCatalogMarkedCell, 
+#postingForm th, 
+.modalTableBody th,
+#newPostFieldset legend {
+  border-radius: 5px;
+}

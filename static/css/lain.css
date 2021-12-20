@@ -1,0 +1,228 @@
+/* wired 8moe v3 by k and cube*/
+@import "./syntax/foundation-modified.css";
+
+@font-face {
+  font-family: mom;
+  src: url('fonts/lain_mom.ttf');
+}
+
+@font-face {
+  font-family: ChicagoFLF;
+  src: url('fonts/lain_chicago.ttf');
+}
+
+:root {
+	--background-color: #000000;
+	--background-gradient: var(--background-color);
+	--text-color: #ac737f;
+	--contrast-color: var(--background-color);
+	--menu-color: transparent;
+	--background-highlight-color: #98e;
+	--horizon-sep-color: var(--border-color);
+	--border-color: #bb7585;
+
+	--marked-color: #31292f;
+	--marked-border-color: #ba9dbf;
+	--marked-text-color: var(--text-color);
+
+	--board-title-color: white;
+
+	--link-color: #808080;
+	--link-hover-color: #d00;
+	--navbar-text-color: var(--border-color);
+	--table-every-other-color: #e0e5f6;
+	/*--button-color: #eceff6;*/
+	--subject-color: white;
+    --role-color: #3695e4;
+
+	--thread-navbar-background: transparent;
+	--thread-navbar-color: var(--border-color);
+
+    --navbar-text-display: none; /*sets whether to display text like "overboard" in the navbar*/
+	--logo-image: url("/.static/logo/logo_lain.png");
+}
+
+hr,
+.catalogCell {
+  border-width: 3px;
+}
+
+body {
+  font-family: "ChicagoFLF";
+  font-size: smaller;
+}
+
+nav {
+  border-bottom: 2px solid #bb7585;
+  text-align: left;
+  font-size: 75%;
+  backdrop-filter: blur(3px);
+}
+
+#themeSelector {
+  color: black;
+}
+
+button, input[type="button"], input[type="submit"], 
+.dropzone, .selectedCell {
+  border-style: double;
+  background: transparent;
+  color: var(--text-color);
+}
+
+input, select, textarea, button,
+.dropzone, .selectedCell {
+  font-weight: bolder;
+  font-style: italic;
+}
+
+#postingForm input[type=submit], #qrbutton {
+  width: 8em;
+  margin: 0.5em auto;
+  font-size: 125%;
+  box-shadow: rgb(187 117 133) 0px 2px 4px 0px, rgb(51 34 38) 0px 2px 16px 0px;
+  font-style: normal;
+}
+
+.postingCheckbox+label {
+  text-shadow: 1px 0px 2px pink;
+}
+
+#postingForm th,
+.modalTableBody th,
+fieldset legend,
+#quick-reply th {
+  background: transparent;
+  border: 1px solid;
+  /* box-shadow: 1px 1px blanchedalmond; */
+  box-shadow: rgb(187 117 133) 0px 2px 4px 0px, rgb(45 30 33) 0px 2px 16px 0px;
+}
+
+.floatingMenu, #quick-reply, .modalDecorationPanel {
+  border-color: #ac737f;
+  border-width: 2px;
+  box-shadow: rgb(172 115 127) 0px 2px 4px 0px, rgb(84 60 65) 0px 2px 16px 0px;
+  backdrop-filter: grayscale(1);
+  /* backdrop-filter: blur(1px); */
+}
+
+.floatingList {
+  background-color: var(--background-color);
+}
+
+#quick-reply table hr {
+  color: var(--navbar-text-color);
+}
+
+#newPostFieldset {
+	border: none;
+}
+
+#divTools, .threadPages, .innerUtility {
+  margin-top: 0;
+  font-size: 85%;
+}
+
+.boardHeader p, #overboardId {
+  font-family: 'mom';
+  text-shadow: 1px 1px 5px white;
+  text-rendering: optimizeSpeed;
+  -webkit-text-stroke: medium;
+  -webkit-text-stroke-color: black;
+}
+
+.boardHeader p#labelName {
+  font-size: 360%;
+  display: inline-block;
+  text-shadow: rgb(240 46 170 / 40%) -5px 5px, rgb(240 46 170 / 30%) -10px 10px, rgb(240 46 170 / 20%) -15px 15px, rgb(240 46 170 / 10%) -20px 20px, rgb(240 46 170 / 5%) -25px 25px;
+}
+
+.boardHeader p#labelDescription {
+  font-size: 180%;
+}
+
+.innerUtility.top {
+  border: 2px solid var(--border-color);
+  font-weight: 100;
+}
+
+.innerUtility.top a {
+  font-size: medium;
+}
+
+#divMessage {
+  font-family: 'mom';
+  text-align: center;
+  text-shadow: 1px 1px 2px #13378a, 0 0 1em #104199, 0 0 0.2em #082c87;
+  color: #3695e4;
+  font-size: medium;
+}
+
+.uploadCell img {
+  float: left;
+  margin-right: 1em;
+  margin-bottom: 1em;
+  box-shadow: rgb(172 115 127) 0px 2px 4px 0px, rgb(99 69 75) 0px 2px 16px 0px;
+}
+
+.opHead, .postInfo, .contentOmissionIndicator, .labelOmission {
+  text-shadow: 1px 0px 2px;
+  -webkit-font-smoothing: none;
+}
+
+.linkSelf, .linkQuote, .labelStats {
+  color: var(--link-color);
+}
+
+.labelSubject {
+  text-shadow: 1px 1px 5px white;
+  font-family: 'mom';
+  font-weight: 100;
+}
+
+.labelRole {
+  text-shadow: 1px 0px 2px #7f4955;
+}
+
+strong {
+  font-weight: bolder;
+}
+
+.pinkText {
+  color: #d701d4;
+}
+
+.greenText {
+  color: green;
+}
+
+.redText {
+  color: #3695e4;
+  text-shadow: 1px 1px 2px #13378a, 0 0 1em #104199, 0 0 0.2em #082c87;
+}
+
+.innerPost,
+.divPages,
+.reportFieldset,
+.sideCatalogCell {
+  border: 2px solid #7f4955;
+}
+
+#divBoards .boardsCell:nth-child(2n),
+#contentBoxInner #divThreads div:nth-child(2n) {
+  background-color: var(--table-every-other-color);
+}
+
+@media only screen and (max-width: 812px) {
+  nav {
+    font-size: 115%;
+    height: auto;
+    padding: 2px 2px;
+  }
+}
+
+span.spoiler {
+	background: box-shadow: 1px 1px 3px #7f4955.
+}
+
+div.innerpost.MarkedPost add text-shadow 1px 1px black;

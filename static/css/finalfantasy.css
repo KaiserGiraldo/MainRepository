@@ -1,0 +1,185 @@
+/* finalf by k for 8chan.moe */
+@import "./syntax/a11y-dark.css";
+
+@font-face {
+  font-family: "Reactor7";
+  src: url('fonts/ff_reactor7.ttf');
+}
+
+@font-face {
+  font-family: "RunicMTCondensed";
+  src: url('fonts/ff_runic.ttf');
+}
+
+@font-face {
+  font-family: "SCE-PS3 Rodin LATIN Regular";
+  src: url('fonts/ff_rodin.ttf');
+}
+
+:root {
+	--background-color: #ffffff;
+	--background-gradient: #eef2ff;
+	--text-color: white;
+	--contrast-color: linear-gradient(to bottom,  #04009d 0%,#06004d 100%);
+	--menu-color: #eef2ff;
+	--background-highlight-color: #98e;
+	--horizon-sep-color: #b7c5d9;
+	--border-color: black;
+	--marked-color: linear-gradient(to bottom,  #651174 0%,#6c103d 100%);
+	--marked-border-color: #ba9dbf;
+	--marked-text-color: var(--text-color);
+	--board-title-color: #ffffff;
+
+	--link-color: #39bab6;
+	--link-hover-color: #d00;
+	--navbar-text-color: #89a;
+	--table-every-other-color: #e0e5f6;
+
+	--sfw-indicator-color: navy;
+	--subject-color: #caca00;
+	--role-color: #ad21b2;
+
+	--thread-navbar-background: var(--contrast-color);
+	--thread-navbar-color: aliceblue;
+
+    --ff-box-shadow: 1px 1px #e7dfe7, -1px -1px #e7dfe7,
+                     1px -1px #e7dfe7, -1px 1px #e7dfe7,
+                     0 -2px #9c9a9c, -2px 0 #7b757b, 0 2px #424542;
+}
+
+body {
+    font-family: "SCE-PS3 Rodin LATIN Regular";
+    background: linear-gradient(124deg,  #04009d 0%,#06004d 100%);
+}
+
+nav {
+    text-align: left;
+    font-size: 75%;
+    background: linear-gradient(to bottom, #651174 0%,#6c103d 100%);
+    border: solid 1px #424542;
+    box-shadow: 1px 1px #e7dfe7, -1px -1px #e7dfe7, 1px -1px #e7dfe7, -1px 1px #e7dfe7, 0 -2px #9c9a9c, -2px 0 #7b757b, 0 2px #424542;
+}
+
+nav .coloredIcon:before,
+.title .coloredIcon:before {
+    color: var(--text-color);
+}
+
+#themeSelector {
+  color: black;
+}
+
+input[type=text], input[type=password], input[type=number], input[type=url],
+textarea, select, input[type=button], input[type=submit], button, 
+.dropzone, .selectedCell {
+	font-family: arial, helvetica, sans-serif;
+}
+
+input[type="button"], input[type="submit"], button,
+.dropzone, .selectedCell {
+    background: linear-gradient(to bottom, #651174 0%,#6c103d 100%);
+    border: solid 1px #424542;
+    border-radius: 5px;
+    box-shadow: 1px 1px #e7dfe7, -1px -1px #e7dfe7, 1px -1px #e7dfe7, -1px 1px #e7dfe7, 0 -2px #9c9a9c, -2px 0 #7b757b, 0 2px #424542;
+}
+
+#sideCatalogHeader button {
+    margin: 0.25em 0.25em
+}
+
+#postingForm th, .modalTableBody th, #quick-reply th,
+fieldset legend {
+    background: linear-gradient(to bottom,  #04009d 0%,#06004d 100%);
+    border: solid 1px #424542;
+    border-radius: 5px;
+}
+
+.localPageLink:after {
+    color: #caca00;
+}
+
+fieldset:not(#newPostFieldset) legend {
+    width: 100%;
+    margin-left: -17px;
+    padding-right: 28px;
+    color: white;
+}
+
+.titleFieldset {
+    background: linear-gradient(to bottom, #04009d 0%,#06004d 100%);
+    border: solid 1px #424542;
+    border-radius: 5px;
+    box-shadow: var(--ff-box-shadow);
+}
+
+.innerUtility.top {
+    background: var(--contrast-color);
+}
+
+.innerUtility.top, .innerPost, .divPages, 
+.reportFieldset, .sideCatalogCell {
+    border: solid 2px #ffffff;
+    border-radius: 5px;
+    box-shadow: var(--ff-box-shadow);
+    padding: 5px 10px;
+    margin: 10px 10px;
+}
+
+.floatingList, .floatingMenu,
+#quick-reply, .modalDecorationPanel {
+    background: transparent;
+    backdrop-filter: blur(5px);
+    border: solid 1px #424542;
+    border-radius: 5px;
+    box-shadow: var(--ff-box-shadow);
+}
+
+.boardHeader p#labelName {
+    display: inline-block;
+    font-family: RunicMTCondensed;
+    font-size: 64px;
+}
+
+.labelSubject {
+    FONT-FAMILY: 'Reactor7';
+    font-size: 20px;
+}
+
+.noEmailName,
+.noEmailName:hover {
+    color: #ffffff;
+    font-family: 'Reactor7';
+    font-size: large;
+}
+
+.divMessage {
+    font-family: 'Reactor7';
+    font-size: 20px;
+    font-weight: normal;
+    text-shadow: 2px 2px #212421,
+               1px 1px #212021;
+    color: white;
+    margin: 5px 0;
+}
+
+.greenText {
+    color: #caca35;
+}
+
+.pinkText {
+    color: #bf21bc;
+}
+
+.catalogCell {
+    border: 3px solid #ffffff;
+    border-radius: 5px;
+    background: #060050;
+    font-size: 20px;
+}
+
+#divLatestImages img, #divLatestPosts .latestPostCell {
+    background: unset;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    color: white;
+}

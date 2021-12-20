@@ -1,0 +1,44 @@
+@import "./penumbra.css";
+
+:root {
+	--background-color: #cccccc;
+	--background-gradient: #eef2ff;
+	--text-color: black;
+	--contrast-color: #dddddd;
+	--menu-color: #cccccc;
+	--horizon-sep-color: #b7c5d9;
+	--border-color: black;
+
+	--marked-color: #868686;
+	--marked-border-color: #ba9dbf;
+    --marked-text-color: var(--text-color);
+
+	--board-title-color: #663E11;
+	--index-text-color: #000333;
+
+	--link-color: #222;
+	--link-hover-color: #d00;
+
+	--navbar-text-color: #89a;
+
+	--sfw-indicator-color: navy;
+	--subject-color: #0f0c5d;
+
+	--logo-image: url("/.static/logo/logo_gray_solid.png");
+
+	--penumbra-input-bg: #dddddd;
+	--penumbra-input-text: black;
+	--penumbra-button-color: #a7a7a7;
+}
+
+nav {
+  background-color: #acacac
+}
+
+#postingForm th, .modalTableBody th {
+  background: #dddddd;
+}
+
+.modalDecorationPanel {
+  background: #cccccc;
+}
