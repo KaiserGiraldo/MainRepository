@@ -82,7 +82,7 @@ posting.init = function() {
 
 posting.setLocalTime = function(time) {
 
-  time.innerHTML = api.formatDateToDisplay(new Date(time.innerHTML + ' UTC'),
+  time.innerHTML = api.formatDateToDisplay(new Date(time.innerHTML + ' JST'),
       true);
 
 };
@@ -253,7 +253,7 @@ posting.updateAllRelativeTimes = function() {
 
 posting.addRelativeTime = function(time) {
 
-  var timeObject = new Date(time.innerHTML + (posting.localTimes ? '' : ' UTC'));
+  var timeObject = new Date(time.innerHTML + (posting.localTimes ? '' : ' JST'));
 
   if (time.nextSibling.nextSibling.className !== 'relativeTime') {
 
