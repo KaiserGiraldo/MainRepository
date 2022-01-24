@@ -253,8 +253,8 @@ watcher.scheduleWatchedThreadsCheck = function() {
 
   lastCheck = new Date(+lastCheck);
 
-  // lastCheck.setJSTMinutes(lastCheck.getJSTMinutes() + 5);
-  lastCheck.setJSTSeconds(lastCheck.getJSTSeconds() + 10);
+  // lastCheck.setUTCMinutes(lastCheck.getUTCMinutes() + 5);
+  lastCheck.setUTCSeconds(lastCheck.getUTCSeconds() + 10);
 
   setTimeout(function() {
     watcher.runWatchedThreadsCheck();

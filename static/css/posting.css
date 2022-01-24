@@ -60,12 +60,19 @@ video {
   font-weight: normal;
   white-space: nowrap;
   cursor: default;
-  color: #000;
   text-shadow: none;
 }
 
-.theme_dark .extraMenu, .theme_dark .hideMenu {
-  color: #ACACAC; 
+.theme_clear .extraMenu, .theme_clear .hideMenu {
+  color: #ACACAC;
+}
+
+.theme_cyber .extraMenu, .theme_cyber .hideMenu {
+  color: #ACACAC;
+}
+
+.theme_clear .extraMenu, .theme_clear .hideMenu {
+  color: #000;
 }
 
 .hideMenu div, .extraMenu div {
@@ -96,6 +103,10 @@ video {
 
 .linkName {
   font-weight: bold;
+  color: #34345c;
+}
+
+.theme_cyber .linkName {
   color: #34ED97;
 }
 
@@ -107,24 +118,39 @@ video {
   color: #117743;
   text-shadow: none;
   cursor: default;
+  text-decoration: none;
 }
 
-.quoteLink {
+.theme_cyber .noEmailName, .noEmailName:hover {
+  color: #117743;
+}
+
+.theme_clear .noEmailName, .noEmailName:hover {
+  color: #117743;
+}
+
+.quoteLink, .theme_cyber .quoteLink {
   color: #ff0000;
 }
 
 .linkSelf {
-  color: #ACACAC;
   text-decoration: none;
+}
+
+.theme_cyber .linkSelf {
+  color: #ACACAC;
 }
 
 .linkSelf:hover {
-  color: #AA0000;
+  color: #ff0000;
 }
 
 .linkQuote {
-  color: #ACACAC;
   text-decoration: none;
+}
+
+.theme_cyber .linkQuote {
+  color: #ACACAC;
 }
 
 .linkQuote:hover {
@@ -132,9 +158,13 @@ video {
 }
 
 .labelSubject {
-  color: #34ED3A;
+  color: #0f0c5d;
   font-weight: bold;
   word-wrap: break-word;
+}
+
+.theme_cyber .labelSubject {
+  color: #34ED3A;
 }
 
 .labelRole {
@@ -308,11 +338,11 @@ video {
 }
 
 .nameLink::after {
-  content: '開く file';
+  content: 'Open file';
 }
 
 .hideFileButton::after {
-  content: '(隠す file)';
+  content: '(Hide file)';
 }
 
 .hiddenFile::after {
@@ -337,14 +367,18 @@ video {
 }
 
 .modalDecorationPanel {
-  background: #cccccc;
+  background: #D6DAF0;
   padding: 10px;
   display: inline-block;
   max-width: 90%;
 }
 
-.theme_dark .modalDecorationPanel {
-  background: #1D1F21; 
+.theme_cyber .modalDecorationPanel {
+  background: #1D1F21;
+}
+
+.theme_clear .modalDecorationPanel {
+  background: #cccccc;
 }
 
 .modalHeader {
@@ -366,25 +400,43 @@ video {
   text-align: left;
   width: 100px;
   font-size: 80%;
-  padding-left: 0.1em;
+  padding-left: 0.3em;
   cursor: default;
+  background: #98E;
+}
+
+.theme_cyber #postingForm th, .theme_cyber .modalTableBody th {
   border: 1px solid #117743;
   border-radius: 5px;
-  background: #dddddd; 
+  background: #282A2E;
+}
+
+.theme_clear #postingForm th, .theme_clear .modalTableBody th {
+  border: 1px solid #117743;
+  border-radius: 5px;
+  background: #282A2E;
 }
 
 #postingForm td, .modalTableBody td {
   text-align: left;
 }
 
-#postingForm input:focus, #postingForm textarea:focus,
-  .modalDecorationPanel input[type='text']:focus, #settingsMenu input[type='text']:focus,
-  #settingsMenu textarea:focus {
+.theme_clear #postingForm input:focus, .theme_clear #postingForm textarea:focus,
+  .theme_clear .modalDecorationPanel input[type='text']:focus,
+  .theme_clear #settingsMenu input[type='text']:focus, .theme_clear #settingsMenu textarea:focus
+  {
   box-shadow: 0px 0px 5px 2px #117743;
 }
 
-.theme_dark #postingForm th, .theme_dark .modalTableBody th {
-  background: #282A2E;
+.theme_cyber #postingForm input:focus, .theme_cyber #postingForm textarea:focus,
+  .theme_cyber .modalDecorationPanel input[type='text']:focus,
+  .theme_cyber #settingsMenu input[type='text']:focus, .theme_cyber #settingsMenu textarea:focus
+  {
+  box-shadow: 0px 0px 5px 2px #117743;
+}
+
+.theme_clear #postingForm th, .theme_clear .modalTableBody th {
+  background: #dddddd;
 }
 
 @media only screen and (max-width: 812px) {

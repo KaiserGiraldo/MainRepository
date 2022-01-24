@@ -71,7 +71,7 @@ account.requestConfirmation = function() {
 account.logout = function() {
 
   document.cookie = 'login=invalid+login';
-  document.cookie = 'hash=invalid+hash; expires=Thu, 01 Jan 1970 00:00:00 JST; path=/;';
+  document.cookie = 'hash=invalid+hash; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
 
   window.location.pathname = '/login.html';
 

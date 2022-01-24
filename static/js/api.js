@@ -14,21 +14,21 @@ api.padDateField = function(value) {
 
 api.formatDateToDisplay = function(d, local) {
 
-  var day = api.padDateField(d[local ? 'getDate' : 'getJSTDate']());
+  var day = api.padDateField(d[local ? 'getDate' : 'getUTCDate']());
 
   var weekDays = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ];
 
-  var month = api.padDateField(d[local ? 'getMonth' : 'getJSTMonth']() + 1);
+  var month = api.padDateField(d[local ? 'getMonth' : 'getUTCMonth']() + 1);
 
-  var year = d[local ? 'getFullYear' : 'getJSTFullYear']();
+  var year = d[local ? 'getFullYear' : 'getUTCFullYear']();
 
-  var weekDay = weekDays[d[local ? 'getDay' : 'getJSTDay']()];
+  var weekDay = weekDays[d[local ? 'getDay' : 'getUTCDay']()];
 
-  var hour = api.padDateField(d[local ? 'getHours' : 'getJSTHours']());
+  var hour = api.padDateField(d[local ? 'getHours' : 'getUTCHours']());
 
-  var minute = api.padDateField(d[local ? 'getMinutes' : 'getJSTMinutes']());
+  var minute = api.padDateField(d[local ? 'getMinutes' : 'getUTCMinutes']());
 
-  var second = api.padDateField(d.getJSTSeconds());
+  var second = api.padDateField(d.getUTCSeconds());
 
   var toReturn = month + '/' + day + '/' + year;
 
