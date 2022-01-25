@@ -575,6 +575,22 @@ footer {
   display: block;
 }
 
+#navCatalog::after {
+  content: 'カタログ';
+}
+
+#linkBack::after {
+  content: '戻る';
+}
+
+#linkTop::after {
+  content: '上';
+}
+
+#linkBottom::after {
+  content: '下';
+}
+
 #navBoardList::after {
   content: '掲示板';
 }

@@ -149,6 +149,10 @@ video {
   text-decoration: none;
 }
 
+.linkQuote::after {
+  content: ' 素早い返信';
+}
+
 .theme_cyber .linkQuote {
   color: #ACACAC;
 }
