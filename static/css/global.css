@@ -600,7 +600,7 @@ footer {
 }
 
 #linkSfwOver::after {
-  content: 'わいせつではないオーバー板';
+  content: 'SFW';
 }
 
 #navPosting::after {
