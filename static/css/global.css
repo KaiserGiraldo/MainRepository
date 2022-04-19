@@ -670,6 +670,104 @@ footer {
   content: 'アカウント';
 }
 
+#divStats {
+  column-count: 3;
+  font-size: 90%;
+}
+
+#divStats > span {
+  font-weight: bold;
+  display: block;
+}
+
+#divStats > span > span {
+	font-weight: normal;
+}
+
+#dynamicLinks a {
+  text-decoration: none;
+}
+
+.topBoards {
+  width: 100%;
+  text-align: center;
+  /*margin: 1em 0px;*/
+}
+
+.topBoards a {
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  margin: 0.5em 0.25em;
+  display: inline-block;
+  font-size: 90%;
+}
+
+#divLatestPosts {
+  margin: 0;
+  /*margin: 1em;*/
+  text-align: center;
+}
+
+#divLatestPosts .latestPostCell {
+  /*display: inline-block;*/
+  overflow: hidden;
+  padding: 0;
+  margin: 0.5em;
+  /*max-width: 15%;*/
+  max-height: 8em;
+  font-size: 75%;
+  vertical-align: middle;
+  text-align: left;
+
+  background: unset;
+  border: 1px solid transparent;
+}
+
+.latestPostCell {
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.latestPostCell a {
+  /*display: block;*/
+}
+
+#divLatestImages {
+  margin: 0 auto;
+  text-align: center;
+}
+
+#divLatestImages .latestImageCell {
+  display: inline-block;
+  max-width: 15%;
+  margin: 0 0.5em;
+  vertical-align: middle;
+}
+
+#divLatestImages img {
+  max-width: 125px;
+  max-height: 125px;
+  padding: 5px;
+
+  background: unset;
+  border: 1px solid transparent;
+}
+
+#divBoardsLegend {
+  width: 100%;
+  text-align: right;
+  display: inline-block;
+
+  border: 1px solid var(--border-color);
+  background: var(--background-highlight-color);
+}
+
+#divBoardsLegend > span, .boardsCellStats {
+  width: 25%;
+  text-align: right;
+  display: inline-table;
+}
+
 @media only screen and (max-width: 812px) {
   #navLinkSpan span, #navOptionsSpan span, legend, #settingsButton, #links span,
     .hideMobile {
@@ -714,21 +812,29 @@ footer {
   #divLogs, .hashLabel {
     overflow-wrap: anywhere;
   }
-    .splitField {
-      display: inline-block;
-      columns: 1;
-      text-align: center;
-    }
-    .splitField > .titleFieldset {
-      margin-bottom: 16px;
-    }
-    .titleFieldset {
-      font-size: 120%;
-    }
-    .titleFieldset form {
+  .splitField {
+    display: inline-block;
+    columns: 1;
     text-align: center;
-    }
-    #divStats {
-      column-count: 1;
-    }
+  }
+  .splitField > .titleFieldset {
+     margin-bottom: 16px;
+  }
+  .titleFieldset {
+    font-size: 120%; 
+  }
+  .titleFieldset form {
+    text-align: center;
+  }
+  #divStats {
+    column-count: 1;
+  }
+  .boardsCellHeader {
+    width: 100%;
+    display: inline-table;
+    text-align: center;
+  }
+  .boardsCellStats, #divBoardsLegend, .labelTags {
+    display: none;
+  }
 }
