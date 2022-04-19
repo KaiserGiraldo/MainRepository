@@ -575,6 +575,21 @@ footer {
   display: block;
 }
 
+.splitField {
+  width: 100%;
+  display: inline-block;
+  column-count: 2;
+  text-align: center;
+  width: 100%;
+}
+
+.splitField > * {
+  vertical-align: top;
+  width: calc(100% - 2em);
+  padding-bottom: 1px;
+  min-inline-size: auto;
+}
+
 #navCatalog::after {
   content: 'カタログ';
 }
@@ -699,4 +714,21 @@ footer {
   #divLogs, .hashLabel {
     overflow-wrap: anywhere;
   }
+    .splitField {
+      display: inline-block;
+      columns: 1;
+      text-align: center;
+    }
+    .splitField > .titleFieldset {
+      margin-bottom: 16px;
+    }
+    .titleFieldset {
+      font-size: 120%;
+    }
+    .titleFieldset form {
+    text-align: center;
+    }
+    #divStats {
+      column-count: 1;
+    }
 }
