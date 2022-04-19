@@ -54,21 +54,29 @@
     <div
       id="infoBox"
       class="title">
-      <p>モツドちやんねるへようこそ！海外の反応がリアルタイムでわかる海外交流掲示板
+      <p>モツドちやんねるへようこそ 海外の反応をリアルタイムで見られる国際交流掲示板です。</p>
         <br><br>
-        この掲示板では、プログラミングの知識がなくても、無料で自分だけの掲示板を作成することができます。
-        <br><br>
-        アカウントを作成することで、自分だけの掲示板を作ることができます。詳しくは<a href="/.static/pages/moderation.html">こちら</a>をご覧ください。
+        海外の記事や外国人の反応を確認することができます。
       </p>
     </div>
+    <fieldset class="titleFieldset">
+      <legend>掲示板</legend>
+        <div
+          id="divBoards"
+          class="topBoards title"></div>
+    </fieldset>
 
-    <div
-      id="divBoards"
-      class="topBoards title"></div>
-
-    <div id="divLatestImages"></div>
-
-    <div id="divLatestPosts"></div>
+    <div class="splitField">
+      <fieldset class="titleFieldset">
+      <legend>海外の最新記事と反応</legend>
+        <div id="divLatestImages"></div>
+      </fieldset> 
+      <div></div>
+      <fieldset class="titleFieldset">
+      <legend>最新の投稿</legend>
+        <div id="divLatestPosts"></div>
+      </fieldset>
+    </div>
 
     <div
       id="links"
@@ -116,22 +124,19 @@
       <span>]</span>
     </div>
 
-    <div id="divStats">
-      <span>[</span> <span>投稿総数：<span id="labelTotalPosts"></span></span>
-      <span>/</span> <span>過去1時間の投稿：<span id="labelTotalPPH"></span></span>
-      <span>/</span> <span>最近の独自IP：<span id="labelTotalIps"></span></span>
-      <span>/</span> <span>板の総数：<span id="labelTotalBoards"></span></span>
-      <span>/</span> <span>保存されているメディアファイル：<span id="labelTotalFiles"></span></span>
-      <span>/</span> <span>合計メディアサイズ：<span id="labelTotalSize"></span></span>
-      <span>]</span>
-    </div>
+    <fieldset class="titleFieldset">
+      <legend>統計</legend>
+        <div id="divStats">
+          <span>投稿総数：<span id="labelTotalPosts"></span></span>
+          <span>過去1時間の投稿：<span id="labelTotalPPH"></span></span>
+          <span>ユニークな最近のIP：<span id="labelTotalIps"></span></span>
+          <span>掲示板の総数：<span id="labelTotalBoards"></span></span>
+          <span>保存されているメディアファイル：<span id="labelTotalFiles"></span></span>
+          <span>合計メディアサイズ：<span id="labelTotalSize"></span></span>
+        </div>
+    </fieldset>
 
   </div>
-
-  <footer>
-    <span>このサイトは言論の自由を応援しています。</span>
-  </footer>
-
 </body>
 
 <script src="/.static/js/api.js"></script>
